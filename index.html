@@ -596,6 +596,7 @@ button:disabled{opacity:.6;cursor:wait}
         <h3>احجز مساحتك في الرقم الجاي</h3>
         <p>نرد عليك خلال يوم عمل بالتفاصيل والأسعار.</p>
         <form id="adForm" novalidate data-form="ads">
+          <input type="hidden" name="form" value="ads">
           <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input id="adName" name="company" placeholder="اسم الجهة" aria-label="اسم الجهة" required autocomplete="organization">
           <input id="adEmail" name="email" type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني" required autocomplete="email">
@@ -619,6 +620,7 @@ button:disabled{opacity:.6;cursor:wait}
       <h3>أرقام الأسبوع في بريدك كل جمعة</h3>
       <p>خمسة أرقام، دقيقتين قراءة.</p>
       <form id="newsForm" novalidate data-form="news">
+        <input type="hidden" name="form" value="news">
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input id="newsEmail" name="email" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني" required autocomplete="email">
         <button class="btn btn-ink" type="submit">اشترك</button>
@@ -801,7 +803,7 @@ function wireForm(form,{endpoint,msgEl,okText,validate}){
     const btn=form.querySelector('button[type=submit]');btn.disabled=true;const label=btn.textContent;btn.textContent='جارٍ الإرسال…';
     fd.delete('website');fd.append('page',location.href);fd.append('sent_at',new Date().toISOString());
     try{
-      await fetch(endpoint,{method:'POST',body:fd,mode:'no-cors'});
+      await fetch(endpoint,{method:'POST',body:new URLSearchParams(fd),mode:'no-cors'});
       setMsg(msgEl,okText,'ok');form.reset();
     }catch(_){setMsg(msgEl,'ما قدرنا نرسل الحين. تأكد من الاتصال وجرّب مرة ثانية.','err');}
     finally{btn.disabled=false;btn.textContent=label;}
