@@ -259,7 +259,7 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
 .story .label{font-size:14px;line-height:1.6}
 @media (max-height:720px) and (min-width:901px){.story .label{display:none}}
 /* week cards */
-.bigcard{height:min(540px,calc(100vh - 130px));min-height:0;padding:16px;gap:14px;justify-content:flex-start;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.bigcard{height:min(540px,calc(100vh - 176px));min-height:0;padding:16px;gap:14px;justify-content:flex-start;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
 .bc-photo{position:relative;flex:1;min-height:120px;border-radius:18px;overflow:hidden;border:2.5px solid var(--ink)}
 .bc-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .bigcard:hover .bc-photo img{transform:scale(1.08)}
@@ -312,6 +312,28 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
 .hash-deco{position:absolute;width:clamp(120px,16vw,240px);height:auto;color:var(--ink);opacity:.08;pointer-events:none;z-index:0}
 .hd1{top:8%;left:4%}.hd2{top:3%;left:6%;color:var(--cyan);opacity:.5}.hd3{bottom:12%;left:3%;opacity:.12}
 section .wrap{position:relative;z-index:1}
+/* week section background */
+.hs-pin{position:relative;padding-bottom:22px}
+.hs-track{position:relative;z-index:1}
+.wk-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.wk-cells{position:absolute;inset:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Crect x='6' y='6' width='44' height='44' rx='10' fill='none' stroke='%2360E2FC' stroke-width='2'/%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 35%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 35%,#000 70%,transparent)}
+.wk-giant{position:absolute;top:50%;left:0;transform:translateY(-50%);white-space:nowrap;font-weight:900;font-size:clamp(140px,34vh,300px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(10,14,19,.11)}
+.wk-hash{position:absolute;color:var(--ink);fill:none}
+.wk-hash.h1{width:150px;height:150px;top:4%;left:38%;color:var(--coral);opacity:.55}
+.wk-hash.h2{width:110px;height:110px;bottom:6%;left:8%;color:var(--cyan)}
+.wk-dot{position:absolute;width:18px;height:18px;border-radius:5px;border:2.5px solid var(--ink)}
+.d1{top:12%;left:18%;background:var(--yellow)}.d2{bottom:14%;left:46%;background:var(--lime)}.d3{top:30%;left:62%;background:var(--coral)}
+.wk-tag{position:absolute;font-family:var(--display);font-weight:800;font-size:15px;padding:7px 15px;border-radius:12px;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);line-height:1.4}
+.t1{top:10%;left:24%;background:var(--yellow);transform:rotate(-6deg)}
+.t2{bottom:10%;left:30%;background:#fff;transform:rotate(4deg)}
+.wk-progress{position:absolute;z-index:2;bottom:6px;left:var(--gutter);display:flex;direction:ltr;align-items:center;gap:8px;font-weight:900}
+#wkCount{font-size:28px}.wk-total{font-size:15px;color:var(--mute)}
+.wk-ruler{width:160px;height:14px;margin-inline-start:10px;position:relative;
+  background:repeating-linear-gradient(90deg,rgba(10,14,19,.35) 0 2px,transparent 2px 10px) bottom/100% 8px no-repeat}
+.wk-ruler b{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--coral);transform-origin:left;transform:scaleX(0);border-radius:2px}
+@media (max-width:900px){.wk-progress,.wk-tag,.wk-dot{display:none}.wk-giant{font-size:150px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.float{animation:none}}
 </style>
 </head>
@@ -398,10 +420,22 @@ section .wrap{position:relative;z-index:1}
 
 <section id="week" aria-labelledby="weekTitle">
   <div class="hs-head">
-    <div class="eyebrow">أرقام الأسبوع</div>
+    <div><div class="eyebrow">أرقام الأسبوع</div>
     <h2 class="sec-title" id="weekTitle">كل رقم وراه قصة</h2><div class="ruler" aria-hidden="true"></div>
+    </div>
   </div>
+
   <div class="hs-pin" id="hsPin">
+    <div class="wk-progress" aria-hidden="true"><span class="num" id="wkCount">01</span><span class="num wk-total">/ 06</span><div class="wk-ruler"><b id="wkFill"></b></div></div>
+    <div class="wk-bg" aria-hidden="true">
+      <div class="wk-cells"></div>
+      <div class="wk-giant num" id="wkGiant">$3,925 · 936 · 71 · 350M · 23% · 176 · $3,925 · 936 · 71 ·</div>
+      <svg class="wk-hash h1"><use href="#hash"/></svg>
+      <svg class="wk-hash h2"><use href="#hash"/></svg>
+      <span class="wk-dot d1"></span><span class="wk-dot d2"></span><span class="wk-dot d3"></span>
+      <span class="wk-tag t1">رقم الأسبوع</span>
+      <span class="wk-tag t2">اسحب ←</span>
+    </div>
     <div class="hs-track" id="hsTrack">
       <article class="bigcard c-lime">
         <div class="bc-photo"><img src="img/oil.webp" alt="أرامكو" loading="lazy"><span class="cat">اقتصاد</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-oil"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
@@ -748,8 +782,12 @@ const track=document.getElementById('hsTrack'),pin=document.getElementById('hsPi
 const mm=gsap.matchMedia();
 mm.add('(min-width: 901px)',()=>{
   const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
-  gsap.set(track,{x:()=>-dist()});
-  const tw=gsap.to(track,{x:0,ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+  gsap.set(track,{x:0});
+  const wkCount=document.getElementById('wkCount'),wkFill=document.getElementById('wkFill'),nCards=track.children.length;
+  const tw=gsap.to(track,{x:()=>dist(),ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',onUpdate:st=>{wkCount.textContent=String(Math.min(nCards,1+Math.floor(st.progress*nCards*.999))).padStart(2,'0');wkFill.style.transform='scaleX('+st.progress+')';},end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+  gsap.fromTo('#wkGiant',{xPercent:0},{xPercent:-35,ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',end:()=>'+='+dist(),scrub:1.5,invalidateOnRefresh:true}});
+  gsap.utils.toArray('.wk-hash').forEach((h,i)=>gsap.to(h,{rotate:i?-180:180,ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',end:()=>'+='+dist(),scrub:true}}));
+  gsap.utils.toArray('.wk-dot').forEach((d,i)=>gsap.to(d,{x:(i%2?-1:1)*160,y:(i-1)*40,ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',end:()=>'+='+dist(),scrub:true}}));
   track.querySelectorAll('.bigcard').forEach(card=>{
     gsap.fromTo(card,{rotate:-3,scale:.92},{rotate:0,scale:1,ease:'none',scrollTrigger:{trigger:card,containerAnimation:tw,start:'left right',end:'center center',scrub:true}});
     const n=card.querySelector('[data-count]');ScrollTrigger.create({trigger:card,containerAnimation:tw,start:'left 85%',once:true,onEnter:()=>countUp(n)});
