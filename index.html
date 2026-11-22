@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>رقم | حقائق وأرقام</title>
+<meta name="description" content="رقم — الرقم اللي ما توقعته. حقيقة مدهشة كل يوم بالأرقام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* فاتح ونظيف: أبيض أساس، حبر للنص، سماوي أساسي، أصفر لإبراز الرقم */
+  --bg:#FFFFFF; --soft:#F4F7F8; --soft-2:#E6ECEE; --ink:#0A0E13; --mute:#5B6670; --line:#DCE3E6;
+  --cyan:#60E2FC; --yellow:#FDFF04; --lime:#BFFB03; --coral:#FF6279;
+  --display:"Rubik","Segoe UI",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --gutter:clamp(18px,4vw,56px);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.75;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+svg,canvas{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.35}
+.num{font-family:var(--display);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px var(--gutter);background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav .logo{width:78px;height:auto}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:500;color:var(--mute)}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:15px;border:0;cursor:pointer;line-height:1.4}
+.btn-main{background:var(--cyan);color:var(--ink)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{background:transparent;border:2px solid var(--ink);color:var(--ink)}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:28px var(--gutter) 56px}
+.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sticker{font-family:var(--display);font-weight:800;font-size:14px;padding:6px 14px;border-radius:8px;background:var(--lime);color:var(--ink);transform:rotate(-3deg);line-height:1.4}
+.hero-label{font-size:clamp(15px,1.6vw,18px);color:var(--mute)}
+.hero-label strong{color:var(--ink);font-weight:600}
+.stage{position:relative;height:clamp(240px,40vw,480px);margin:8px calc(var(--gutter) * -1) 0}
+#particles{position:absolute;inset:0;width:100%;height:100%}
+.stage-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:6px}
+.hero-unit{font-family:var(--display);font-weight:800;font-size:clamp(20px,2.6vw,34px);line-height:1.4}
+.hero-unit mark{background:linear-gradient(transparent 55%,var(--yellow) 55%);color:inherit;padding:0 .15em}
+.hero-dots{display:flex;gap:8px}
+.hero-dots button{width:28px;height:6px;border:0;border-radius:3px;background:var(--soft-2);cursor:pointer;transition:background .3s,width .3s}
+.hero-dots button.on{background:var(--ink);width:44px}
+.hero-main{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:44px}
+.hero h1{font-size:clamp(40px,6vw,84px);font-weight:900;line-height:1.3}
+.hero h1 .hl{background:linear-gradient(transparent 58%,var(--yellow) 58%);padding:0 .1em}
+.lede{font-size:clamp(16px,1.4vw,18px);color:var(--mute);max-width:44ch}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+@media (max-width:760px){.hero-main{grid-template-columns:1fr;gap:16px;margin-top:28px}}
+
+/* ticker */
+.ticker{background:var(--cyan);overflow:hidden;transform:rotate(-1.5deg) scale(1.02)}
+.ticker-track{display:flex;width:max-content;direction:ltr}
+.ticker-item{display:flex;align-items:center;gap:12px;padding:16px 28px;font-family:var(--display);font-weight:700;font-size:clamp(16px,1.6vw,20px);white-space:nowrap;direction:rtl;line-height:1.4}
+.ticker-item b{font-weight:900}
+.ticker-item i{width:8px;height:8px;background:var(--ink);border-radius:2px}
+
+/* section heads */
+.wrap{padding:clamp(80px,10vw,130px) var(--gutter)}
+.eyebrow{font-family:var(--display);font-weight:700;color:var(--mute);font-size:14px;margin-bottom:8px}
+.sec-title{font-size:clamp(30px,4.2vw,56px);font-weight:900;max-width:20ch}
+.sec-sub{color:var(--mute);max-width:54ch;margin-top:10px;font-size:17px}
+
+/* horizontal */
+.hs-head{padding:clamp(80px,10vw,130px) var(--gutter) 36px}
+.hs-pin{overflow:hidden;width:100%;max-width:100vw}
+.hs-track{display:flex;flex-direction:row-reverse;gap:22px;padding:0 var(--gutter) 30px;width:max-content;direction:ltr}
+.bigcard{direction:rtl;width:min(80vw,440px);min-height:520px;border-radius:28px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;color:var(--ink);flex-shrink:0}
+.bigcard .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bigcard .cat{font-family:var(--display);font-weight:700;font-size:14px;padding:4px 14px;border:2px solid var(--ink);border-radius:999px;line-height:1.5}
+.bigcard .ico{width:56px;height:56px}
+.bigcard .big{font-weight:900;font-size:clamp(68px,9vw,120px);line-height:1.1}
+.bigcard .unit{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.4;margin-top:4px}
+.bigcard p{font-size:16px;font-weight:500;margin-top:12px;line-height:1.7}
+.c-cyan{background:var(--cyan)} .c-yellow{background:var(--yellow)} .c-lime{background:var(--lime)} .c-coral{background:var(--coral)} .c-soft{background:var(--soft-2)}
+
+/* compare */
+.compare{background:var(--soft)}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:40px}
+.cmp-panel{background:#fff;border-radius:28px;padding:clamp(24px,3vw,40px)}
+.cmp-panel label{display:block;font-family:var(--display);font-weight:700;margin-bottom:10px}
+.field{display:flex;align-items:center;gap:10px;background:var(--soft);border:2px solid transparent;border-radius:16px;padding:6px}
+.field:focus-within{border-color:var(--cyan)}
+.field input{flex:1;background:transparent;border:0;outline:0;font-family:var(--display);font-weight:800;font-size:28px;padding:6px 12px;direction:ltr;text-align:right;min-width:0;line-height:1.4}
+.seg{display:flex;background:#fff;border-radius:12px;padding:4px}
+.seg button{border:0;background:transparent;padding:8px 14px;border-radius:9px;cursor:pointer;font-family:var(--display);font-weight:700;font-size:14px;color:var(--mute)}
+.seg button.on{background:var(--ink);color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 16px;cursor:pointer;font-size:14px;font-weight:500;line-height:1.5;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.result{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.result .r-label{color:var(--mute);font-size:15px}
+.result .r-line{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.result .r-big{font-size:clamp(60px,8vw,104px);font-weight:900;line-height:1.15}
+.result .r-unit{font-family:var(--display);font-weight:800;font-size:26px}
+.src{font-size:13px;color:var(--mute);margin-top:12px}
+.clock{max-width:420px;width:100%;margin-inline:auto}
+@media (max-width:860px){.cmp-grid{grid-template-columns:1fr}.clock{max-width:280px;order:-1}}
+
+/* archive */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--soft);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s}
+.card:hover{transform:translateY(-6px);background:var(--accent)}
+.card .top{display:flex;justify-content:space-between;align-items:center}
+.card .tag{font-family:var(--display);font-weight:700;font-size:13px;padding:3px 12px;border-radius:999px;background:var(--accent);line-height:1.6}
+.card:hover .tag{background:#fff}
+.card .ico{width:34px;height:34px}
+.card .n{font-size:clamp(40px,4vw,52px);font-weight:900;line-height:1.15}
+.card .u{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5}
+.card h3{font-family:var(--body);font-weight:500;font-size:15px;color:var(--mute);line-height:1.7;margin-top:4px}
+.card:hover h3{color:var(--ink)}
+.card.hide{display:none}
+
+/* ads */
+.ads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.stat{background:var(--soft);border-radius:22px;padding:28px}
+.stat .n{font-size:clamp(44px,4.6vw,64px);font-weight:900;line-height:1.15}
+.stat .l{color:var(--mute);margin-top:6px;font-size:15px}
+.ads-split{display:grid;grid-template-columns:1fr 1.1fr;gap:16px;margin-top:16px}
+.panel{background:var(--soft);border-radius:22px;padding:clamp(24px,3vw,36px)}
+.panel h3{font-size:22px;font-weight:800;margin-bottom:22px}
+.bars{display:grid;gap:16px}
+.bar{display:grid;grid-template-columns:84px 1fr 50px;align-items:center;gap:12px;font-size:15px}
+.bar .track{height:12px;background:#fff;border-radius:6px;overflow:hidden}
+.bar .fill{height:100%;border-radius:6px;transform-origin:right;background:var(--ink)}
+.bar .v{font-family:var(--display);font-weight:800;text-align:left}
+.contact{background:var(--yellow);border-radius:22px;padding:clamp(24px,3vw,36px)}
+.contact h3{font-size:clamp(24px,2.6vw,32px);font-weight:900;margin-bottom:6px}
+.contact p{margin-bottom:18px;font-weight:500}
+.contact form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.contact input,.contact select{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:11px 14px;font-size:15px;width:100%;line-height:1.5}
+.contact .full{grid-column:1/-1}
+.form-msg{grid-column:1/-1;font-size:14px;font-weight:600;min-height:1.5em}
+@media (max-width:900px){.ads-grid{grid-template-columns:1fr 1fr}.ads-split{grid-template-columns:1fr}}
+@media (max-width:520px){.ads-grid{grid-template-columns:1fr}.contact form{grid-template-columns:1fr}}
+
+.principles{margin-top:16px}
+.pr{border-top:4px solid var(--accent);padding:20px 4px 0}
+.pr b{display:block;font-family:var(--display);font-size:20px;font-weight:800;line-height:1.5}
+.pr span{color:var(--mute);font-size:15px}
+/* footer */
+footer{background:var(--soft);padding:70px var(--gutter) 30px}
+.foot-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.foot-logo{width:100%;max-width:520px;height:auto}
+.news h3{font-size:clamp(24px,2.6vw,34px);font-weight:900}
+.news p{color:var(--mute);margin-top:4px}
+.news form{display:flex;gap:8px;margin-top:18px;background:#fff;border-radius:999px;padding:6px;max-width:460px}
+.news input{flex:1;border:0;outline:0;background:transparent;padding:8px 16px;min-width:0;font-size:15px}
+.news .form-msg{margin-top:10px;color:var(--mute)}
+.foot-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;padding-top:22px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+.foot-row a:hover{color:var(--ink)}
+@media (max-width:760px){.foot-top{grid-template-columns:1fr}.foot-logo{max-width:300px}}
+
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- الشعار المعتمد (الهندسي المتصل) — نسخة الأبيض: حروف حبر، مربع مرجاني -->
+    <symbol id="logo" viewBox="22 20 260 165">
+      <g transform="translate(22,0)"><rect x="20" y="80" width="44" height="40" rx="14" fill="none" stroke="#0A0E13" stroke-width="20"/><rect x="10" y="100" width="20" height="78" rx="6" fill="#0A0E13"/></g>
+      <g fill="#0A0E13"><rect x="136" y="62" width="20" height="90" rx="6"/><rect x="184" y="62" width="20" height="90" rx="6"/><rect x="110" y="62" width="120" height="20" rx="6"/><rect x="110" y="110" width="120" height="20" rx="6"/><rect x="82" y="110" width="38" height="20"/></g>
+      <rect x="156" y="82" width="28" height="28" fill="#FF6279"/>
+      <rect x="135" y="30" width="22" height="22" rx="6" fill="#0A0E13"/><rect x="183" y="30" width="22" height="22" rx="6" fill="#0A0E13"/>
+      <path d="M262 92 V120 Q262 166 218 170" fill="none" stroke="#0A0E13" stroke-width="20" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></g></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4 2.9-1.5 4.7h-5L8 10.4z"/></g></symbol>
+    <symbol id="i-oil" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2.8s-6.5 7.6-6.5 12a6.5 6.5 0 0 0 13 0c0-4.4-6.5-12-6.5-12z"/></g></symbol>
+    <symbol id="i-sat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="2.6"/><path d="M9.4 12H5M14.6 12H19"/><rect x="2" y="9" width="3" height="6"/><rect x="19" y="9" width="3" height="6"/></g></symbol>
+    <symbol id="i-game" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10a4.5 4.5 0 0 1 4.4 5.5l-1 4.5a2.3 2.3 0 0 1-4 1L14.5 16h-5L7.6 18a2.3 2.3 0 0 1-4-1l-1-4.5A4.5 4.5 0 0 1 7 7z"/><path d="M7.5 10v4M5.5 12h4"/></g></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M2.5 15.5v-2.5l2-1 3-4h7l4 4 3 .8v2.7h-2M8.5 15.5h6"/><circle cx="6.5" cy="16" r="2"/><circle cx="17" cy="16" r="2"/></g></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14M9 21l1.5-4M15 21l-1.5-4"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 20s-8-4.8-8-10.4A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8 2.6C20 15.2 12 20 12 20z"/></g></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9h4.3a2.3 2.3 0 0 0 0-4.6H9.5h3.8a2.2 2.2 0 0 0 0-4.4H9.5"/></g></symbol>
+    <symbol id="i-tower" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 1.5v3M10.5 4.5h3L15 21H9zM7 21h10"/></g></symbol>
+    <symbol id="i-meteor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="16.5" cy="16.5" r="4"/><path d="M13.5 13.5L3 3M15 11L7.5 3.5M11 15L3.5 7.5"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <a href="#top" aria-label="رقم — الرئيسية"><svg class="logo" viewBox="22 20 260 165" role="img" aria-label="رقم"><use href="#logo"/></svg></a>
+  <ul>
+    <li><a href="#week">أرقام الأسبوع</a></li>
+    <li><a href="#compare">قارن</a></li>
+    <li><a href="#archive">الأرشيف</a></li>
+    <li><a href="#about">عن رقم</a></li>
+  </ul>
+  <a class="btn btn-main" href="https://www.instagram.com/raqam.ar/">تابعنا</a>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="رقم اليوم">
+  <div class="hero-top">
+    <span class="sticker">رقم اليوم</span>
+    <p class="hero-label" id="heroLabel"><strong>سكان العالم</strong> — عدد البشر على الأرض اليوم</p>
+  </div>
+  <div class="stage"><canvas id="particles" aria-hidden="true"></canvas></div>
+  <div class="stage-foot">
+    <div class="hero-unit"><mark id="heroUnit">مليار إنسان</mark></div>
+    <div class="hero-dots" id="heroDots" aria-label="أرقام الواجهة"></div>
+  </div>
+  <div class="hero-main">
+    <h1>الرقم اللي <span class="hl">ما توقعته</span></h1>
+    <div>
+      <p class="lede">حقيقة مدهشة كل يوم. نحوّل الاقتصاد والرياضة والتقنية إلى رقم واحد تفهمه في ثانية، وتتذكره طويلًا.</p>
+      <div class="cta-row">
+        <a class="btn btn-ink" href="#archive">تصفّح الأرقام</a>
+        <a class="btn btn-line" href="https://www.instagram.com/raqam.ar/">تابعنا على إنستقرام</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="شريط الأرقام"><div class="ticker-track" id="ticker"></div></div>
+
+<section id="week" aria-labelledby="weekTitle">
+  <div class="hs-head">
+    <div class="eyebrow">أرقام الأسبوع</div>
+    <h2 class="sec-title" id="weekTitle">كل رقم وراه قصة</h2>
+  </div>
+  <div class="hs-pin" id="hsPin">
+    <div class="hs-track" id="hsTrack">
+      <article class="bigcard c-lime"><div class="row"><span class="cat">اقتصاد</span><svg class="ico" aria-hidden="true"><use href="#i-oil"/></svg></div>
+        <div><div class="big num" data-count="3925" data-prefix="$">$3,925</div><div class="unit">كل ثانية</div><p>صافي ربح أرامكو في ربع واحد بلغ 31.2 مليار دولار.</p></div></article>
+      <article class="bigcard c-coral"><div class="row"><span class="cat">رياضة</span><svg class="ico" aria-hidden="true"><use href="#i-ball"/></svg></div>
+        <div><div class="big num" data-count="936">936</div><div class="unit">هدفًا لميسي</div><p>في 1,181 مباراة رسمية، منها 672 مع برشلونة.</p></div></article>
+      <article class="bigcard c-cyan"><div class="row"><span class="cat">علوم</span><svg class="ico" aria-hidden="true"><use href="#i-meteor"/></svg></div>
+        <div><div class="big num" data-count="71">71</div><div class="unit">كم في الثانية</div><p>سرعة شهب الأسد وهي تدخل الغلاف الجوي.</p></div></article>
+      <article class="bigcard c-yellow"><div class="row"><span class="cat">ألعاب</span><svg class="ico" aria-hidden="true"><use href="#i-game"/></svg></div>
+        <div><div class="big num" data-count="350">350</div><div class="unit">مليون نسخة</div><p>ماينكرافت، اللعبة الأكثر مبيعًا في التاريخ.</p></div></article>
+      <article class="bigcard c-soft"><div class="row"><span class="cat">خليجي</span><svg class="ico" aria-hidden="true"><use href="#i-train"/></svg></div>
+        <div><div class="big num" data-count="176">176</div><div class="unit">كم مترو الرياض</div><p>من أطول شبكات المترو بلا سائق في العالم.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="compare" id="compare" aria-labelledby="cmpTitle">
+  <div class="wrap">
+    <div class="eyebrow">أداة قارن</div>
+    <h2 class="sec-title" id="cmpTitle">كم ثانية تحتاج أرامكو عشان تربح راتبك؟</h2>
+    <div class="cmp-grid">
+      <div class="cmp-panel">
+        <label for="salary">راتبك الشهري</label>
+        <div class="field">
+          <input id="salary" type="text" inputmode="numeric" value="5,000">
+          <div class="seg" role="group" aria-label="العملة">
+            <button type="button" class="on" data-cur="USD">دولار</button>
+            <button type="button" data-cur="SAR">ريال</button>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="قيم سريعة">
+          <button type="button" class="chip" data-v="2000">2,000</button>
+          <button type="button" class="chip on" data-v="5000">5,000</button>
+          <button type="button" class="chip" data-v="10000">10,000</button>
+          <button type="button" class="chip" data-v="50000">50,000</button>
+        </div>
+        <div class="result" aria-live="polite">
+          <div class="r-label">أرامكو تربح راتبك خلال</div>
+          <div class="r-line"><span class="r-big num" id="rBig">1.27</span><span class="r-unit" id="rUnit">ثانية</span></div>
+        </div>
+        <p class="src">على أساس 3,925 دولارًا صافي ربح في الثانية، والدولار = 3.75 ريال.</p>
+      </div>
+      <svg class="clock" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="160" fill="#fff"/>
+        <circle cx="200" cy="200" r="160" fill="none" stroke="#E6ECEE" stroke-width="28"/>
+        <circle id="arc" cx="200" cy="200" r="160" fill="none" stroke="#60E2FC" stroke-width="28" transform="rotate(-90 200 200)" stroke-dasharray="1005.3" stroke-dashoffset="1005.3"/>
+        <line id="hand" x1="200" y1="200" x2="200" y2="70" stroke="#0A0E13" stroke-width="8" stroke-linecap="round"/>
+        <rect x="190" y="190" width="20" height="20" fill="#FF6279"/>
+        <text id="dollars" x="200" y="272" text-anchor="middle" font-family="Rubik, sans-serif" font-weight="900" font-size="36" fill="#0A0E13">$0</text>
+        <text x="200" y="304" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-weight="500" font-size="17" fill="#5B6670">ربح أرامكو في هذي الثانية</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="archive" aria-labelledby="arcTitle">
+  <div class="wrap">
+    <div class="eyebrow">الأرشيف</div>
+    <h2 class="sec-title" id="arcTitle">كل الأرقام في مكان واحد</h2>
+    <div class="filters" role="group" aria-label="التصنيفات">
+      <button type="button" class="chip on" data-f="all">الكل</button>
+      <button type="button" class="chip" data-f="eco">اقتصاد</button>
+      <button type="button" class="chip" data-f="sci">علوم</button>
+      <button type="button" class="chip" data-f="sport">رياضة</button>
+      <button type="button" class="chip" data-f="gulf">خليجي</button>
+      <button type="button" class="chip" data-f="game">ألعاب</button>
+      <button type="button" class="chip" data-f="lux">فخامة</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="aboutTitle">
+  <div class="wrap" style="padding-top:0">
+    <div class="eyebrow">عن رقم</div>
+    <h2 class="sec-title" id="aboutTitle">نقرأ العالم برقم واحد</h2>
+    <p class="sec-sub">«رقم» منصة عربية تختصر الخبر في رقم واحد، وتحكي القصة اللي وراه بصورة وتصميم يخليك تتذكره.</p>
+    <div class="ads-grid">
+      <div class="stat"><div class="n num" data-count="14">14</div><div class="l">رقمًا جديدًا كل أسبوع بين كاروسيل وريلز</div></div>
+      <div class="stat"><div class="n num" data-count="7">7</div><div class="l">تحديات «خمّن الرقم» في الستوري كل أسبوع</div></div>
+      <div class="stat"><div class="n num" data-count="7">7</div><div class="l">تصنيفات من الاقتصاد إلى الألعاب</div></div>
+    </div>
+    <div class="ads-grid principles">
+      <div class="pr" style="--accent:var(--cyan)"><b>رقم واحد</b><span>كل منشور يدور حول رقم واحد واضح، بدون حشو.</span></div>
+      <div class="pr" style="--accent:var(--yellow)"><b>قصة ورا الرقم</b><span>نشرح وش يعني الرقم وليش يهمك، مو بس نعرضه.</span></div>
+      <div class="pr" style="--accent:var(--coral)"><b>كل يوم جديد</b><span>أرقام مرتبطة باللي يصير الحين في العالم والخليج.</span></div>
+    </div>
+  </div>
+</section>
+<section id="ads" aria-labelledby="adsTitle" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="eyebrow">للمعلنين والشراكات</div>
+    <h2 class="sec-title" id="adsTitle">خل علامتك تصير جزء من القصة</h2>
+    <p class="sec-sub">جمهورنا رجال من الخليج بين 25 و44 سنة، يتابعون المال والتقنية والرياضة والسيارات.</p>
+    <div class="ads-split">
+      <div class="panel" style="background:#fff">
+        <h3>من وين جمهورنا؟</h3>
+        <div class="bars" id="bars">
+          <div class="bar"><span>السعودية</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:62%;background:var(--cyan)"></div></div><span class="v num">62%</span></div>
+          <div class="bar"><span>الإمارات</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:19%"></div></div><span class="v num">19%</span></div>
+          <div class="bar"><span>البحرين</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:13%"></div></div><span class="v num">13%</span></div>
+          <div class="bar"><span>دول أخرى</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:6%"></div></div><span class="v num">6%</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3>احجز مساحتك في الرقم الجاي</h3>
+        <p>نرد عليك خلال يوم عمل بالتفاصيل والأسعار.</p>
+        <form id="adForm" novalidate>
+          <input id="adName" placeholder="اسم الجهة" aria-label="اسم الجهة">
+          <input id="adEmail" type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني">
+          <select id="adType" class="full" aria-label="نوع الإعلان">
+            <option>رقم الأسبوع برعايتك</option><option>ريل موشن مخصص</option><option>ستوري «خمّن الرقم»</option><option>كاروسيل «قارن»</option>
+          </select>
+          <button class="btn btn-ink full" type="submit">أرسل الطلب</button>
+          <p class="form-msg" id="adMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-top">
+    <svg class="foot-logo" id="footLogo" viewBox="22 20 260 165" role="img" aria-label="رقم"></svg>
+    <div class="news">
+      <h3>أرقام الأسبوع في بريدك كل جمعة</h3>
+      <p>خمسة أرقام، دقيقتين قراءة.</p>
+      <form id="newsForm" novalidate>
+        <input id="newsEmail" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+        <button class="btn btn-main" type="submit">اشترك</button>
+      </form>
+      <p class="form-msg" id="newsMsg" role="status"></p>
+    </div>
+  </div>
+  <div class="foot-row">
+    <span>رقم | حقائق وأرقام</span>
+    <a href="#ads">أعلن معنا</a>
+    <a href="https://www.instagram.com/raqam.ar/" class="num">@raqam.ar</a>
+    <span class="num">© 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasG=typeof gsap!=='undefined', hasST=hasG&&typeof ScrollTrigger!=='undefined';
+if(hasST) gsap.registerPlugin(ScrollTrigger);
+const fmt=(n,d=0)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+/* nav border on scroll */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+/* ---------- HERO: number built from particles ---------- */
+const NUMS=[
+ {n:'8.2',unit:'مليار إنسان',label:'<strong>سكان العالم</strong> — عدد البشر على الأرض اليوم'},
+ {n:'936',unit:'هدفًا',label:'<strong>ميسي</strong> — أهدافه الرسمية في مسيرته'},
+ {n:'71',unit:'كم في الثانية',label:'<strong>شهب الأسد</strong> — سرعة دخولها الغلاف الجوي'},
+ {n:'828',unit:'مترًا',label:'<strong>برج خليفة</strong> — أطول مبنى صنعه الإنسان'},
+ {n:'21M',unit:'بيتكوين فقط',label:'<strong>بيتكوين</strong> — الحد الأقصى اللي ممكن يوجد'}
+];
+const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
+const lab=document.getElementById('heroLabel'),unitEl=document.getElementById('heroUnit'),dotsEl=document.getElementById('heroDots');
+let W=0,H=0,DPR=Math.min(devicePixelRatio||1,2),parts=[],idx=0,mouse={x:-1e4,y:-1e4},timer;
+const palette=['#0A0E13','#0A0E13','#0A0E13','#60E2FC','#60E2FC','#FF6279'];
+NUMS.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',o.n+' '+o.unit);b.onclick=()=>{go(i);restart();};dotsEl.appendChild(b);});
+function targets(str){
+  const off=document.createElement('canvas');off.width=W;off.height=H;
+  const o=off.getContext('2d');o.fillStyle='#000';o.textAlign='center';o.textBaseline='middle';
+  let fs=H*0.95;o.font='900 '+fs+'px Rubik';
+  while(o.measureText(str).width>W*0.84&&fs>40){fs-=8;o.font='900 '+fs+'px Rubik';}
+  o.fillText(str,W/2,H*0.54);
+  const d=o.getImageData(0,0,W,H).data,pts=[];
+  const step=Math.max(5,Math.round(Math.sqrt(W*H/(W<600?2200:4200))));
+  for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(d[(y*W+x)*4+3]>128)pts.push([x,y]);
+  return{pts,step};
+}
+function resize(){const r=cv.getBoundingClientRect();W=Math.round(r.width);H=Math.round(r.height);cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);go(idx,true);}
+function go(i,instant){
+  idx=i;const t=targets(NUMS[i].n),pts=t.pts;
+  for(let k=pts.length-1;k>0;k--){const j=(Math.random()*(k+1))|0;[pts[k],pts[j]]=[pts[j],pts[k]];}
+  while(parts.length<pts.length)parts.push({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0,tx:0,ty:0,c:palette[(Math.random()*palette.length)|0],s:1,free:false});
+  parts.forEach((p,k)=>{
+    if(k<pts.length){p.tx=pts[k][0];p.ty=pts[k][1];p.free=false;}else{p.free=true;p.tx=Math.random()*W;p.ty=H+40;}
+    p.s=t.step*0.62;
+    if(instant){p.x=p.tx;p.y=p.ty;}else{p.vx+=(Math.random()-.5)*20;p.vy+=(Math.random()-.5)*20;}
+  });
+  [...dotsEl.children].forEach((b,k)=>b.classList.toggle('on',k===i));
+  lab.innerHTML=NUMS[i].label;unitEl.textContent=NUMS[i].unit;
+  if(hasG&&!instant)gsap.fromTo([lab,unitEl],{y:10,opacity:.3},{y:0,opacity:1,duration:.6,ease:'power3.out'});
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(const p of parts){
+    if(!reduce){
+      const dx=p.x-mouse.x,dy=p.y-mouse.y,dd=dx*dx+dy*dy,R=100;
+      if(dd<R*R){const f=(1-Math.sqrt(dd)/R)*5,a=Math.atan2(dy,dx);p.vx+=Math.cos(a)*f;p.vy+=Math.sin(a)*f;}
+      p.vx+=(p.tx-p.x)*0.05;p.vy+=(p.ty-p.y)*0.05;p.vx*=0.8;p.vy*=0.8;p.x+=p.vx;p.y+=p.vy;
+    }
+    if(p.free&&p.y>H+10)continue;
+    ctx.fillStyle=p.c;ctx.beginPath();ctx.roundRect?ctx.roundRect(p.x-p.s/2,p.y-p.s/2,p.s,p.s,p.s*0.3):ctx.rect(p.x-p.s/2,p.y-p.s/2,p.s,p.s);ctx.fill();
+  }
+  if(!reduce)requestAnimationFrame(draw);
+}
+function restart(){clearInterval(timer);if(!reduce)timer=setInterval(()=>go((idx+1)%NUMS.length),4200);}
+cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+cv.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-1e4;});
+const start=()=>{resize();draw();restart();};
+(document.fonts?document.fonts.load('900 100px Rubik').then(start,start):start());
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{resize();if(reduce)draw();},200);});
+
+/* ---------- TICKER ---------- */
+const T=[['8.2 مليار','سكان العالم'],['$3,925','أرامكو كل ثانية'],['936','أهداف ميسي'],['350M','نسخ ماينكرافت'],['828 م','برج خليفة'],['176 كم','مترو الرياض'],['21M','بيتكوين']];
+let h='';for(let r=0;r<2;r++)T.forEach(a=>{h+='<span class="ticker-item"><i></i><b class="num">'+a[0]+'</b><span>'+a[1]+'</span></span>';});
+const tk=document.getElementById('ticker');tk.innerHTML=h;
+if(hasG&&!reduce){
+  const loop=gsap.fromTo(tk,{xPercent:0},{xPercent:-50,repeat:-1,duration:32,ease:'none'});
+  if(hasST)ScrollTrigger.create({onUpdate:s=>{const v=Math.min(Math.abs(s.getVelocity())/500,4);gsap.to(loop,{timeScale:1+v,duration:.2,overwrite:true});clearTimeout(window.__tk);window.__tk=setTimeout(()=>gsap.to(loop,{timeScale:1,duration:.8}),150);}});
+}
+
+/* ---------- COUNTERS ---------- */
+function countUp(el){
+  const end=parseFloat(el.dataset.count);if(isNaN(end)||!hasG)return;
+  const pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',o={v:0};
+  gsap.to(o,{v:end,duration:1.5,ease:'power3.out',onUpdate:()=>{el.textContent=pre+fmt(o.v)+suf;}});
+}
+
+/* ---------- ARCHIVE ---------- */
+const CAT={eco:['اقتصاد','#BFFB03'],sci:['علوم','#60E2FC'],sport:['رياضة','#FF6279'],lux:['فخامة','#FDFF04'],gulf:['خليجي','#60E2FC'],game:['ألعاب','#FDFF04']};
+const ITEMS=[
+ ['eco','i-oil','31.2','مليار دولار','صافي ربح أرامكو في ربع واحد'],
+ ['sport','i-ball','936','هدفًا','أهداف ميسي الرسمية في مسيرته'],
+ ['sci','i-sat','1','يوم ضوئي','المسافة اللي قطعها المسبار فوييجر 1'],
+ ['game','i-game','350','مليون نسخة','مبيعات ماينكرافت، الأعلى في التاريخ'],
+ ['gulf','i-tower','828','مترًا','ارتفاع برج خليفة'],
+ ['eco','i-coin','21','مليون','الحد الأقصى لعدد البيتكوين'],
+ ['sci','i-heart','100K','نبضة','ينبضها قلبك كل يوم تقريبًا'],
+ ['lux','i-car','23%','من مبيعات بورشه','نصيب سيارة 911 وحدها'],
+ ['gulf','i-home','181,866','صفقة','تداولات عقارات دبي في سنة'],
+ ['game','i-game','13','سنة','الفجوة بين GTA V وGTA VI'],
+ ['sci','i-meteor','71','كم/ث','سرعة شهب الأسد'],
+ ['gulf','i-train','176','كم','طول شبكة مترو الرياض']
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=ITEMS.map(([c,ic,n,u,t])=>`<article class="card" data-c="${c}" style="--accent:${CAT[c][1]}"><div class="top"><span class="tag">${CAT[c][0]}</span><svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg></div><div><div class="n num">${n}</div><div class="u">${u}</div><h3>${t}</h3></div></article>`).join('');
+document.querySelectorAll('.filters .chip').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters .chip').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f,shown=[];
+  grid.querySelectorAll('.card').forEach(card=>{const ok=f==='all'||card.dataset.c===f;card.classList.toggle('hide',!ok);if(ok)shown.push(card);});
+  if(hasG&&!reduce)gsap.fromTo(shown,{y:24,scale:.96},{y:0,scale:1,duration:.5,ease:'back.out(1.5)',stagger:.04,clearProps:'transform'});
+}));
+
+/* ---------- COMPARE ---------- */
+const PER_SEC=3925,SAR=3.75;let cur='USD';
+const inp=document.getElementById('salary'),rBig=document.getElementById('rBig'),rUnit=document.getElementById('rUnit');
+const arc=document.getElementById('arc'),hand=document.getElementById('hand'),dollarsT=document.getElementById('dollars');
+const CIRC=2*Math.PI*160,state={secs:0};
+function render(){
+  const s=state.secs;let v,u;
+  if(s<60){v=fmt(s,s<10?2:1);u='ثانية';}else if(s<3600){v=fmt(s/60,1);u='دقيقة';}else if(s<86400){v=fmt(s/3600,1);u='ساعة';}else{v=fmt(s/86400,1);u='يوم';}
+  rBig.textContent=v;rUnit.textContent=u;
+}
+function calc(){
+  const raw=parseFloat(inp.value.replace(/[^\d.]/g,''))||0,usd=cur==='USD'?raw:raw/SAR,secs=usd/PER_SEC;
+  if(hasG&&!reduce)gsap.to(state,{secs,duration:.9,ease:'power3.out',onUpdate:render});else{state.secs=secs;render();}
+}
+inp.addEventListener('input',()=>{const d=inp.value.replace(/[^\d]/g,'');inp.value=d?fmt(+d):'';document.querySelectorAll('.cmp-panel .chip').forEach(c=>c.classList.remove('on'));calc();});
+document.querySelectorAll('.cmp-panel .chip').forEach(c=>c.addEventListener('click',()=>{inp.value=fmt(+c.dataset.v);document.querySelectorAll('.cmp-panel .chip').forEach(x=>x.classList.toggle('on',x===c));calc();}));
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{cur=b.dataset.cur;document.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b));calc();}));
+calc();
+// one second of Aramco, looping: the arc fills, the hand sweeps, the dollars count
+const t0=performance.now();
+(function tickClock(now){
+  const f=reduce?1:((now-t0)/1000)%1;
+  arc.setAttribute('stroke-dashoffset',CIRC*(1-f));
+  hand.setAttribute('transform','rotate('+(f*360)+' 200 200)');
+  dollarsT.textContent='$'+fmt(Math.floor(f*PER_SEC));
+  if(!reduce)requestAnimationFrame(tickClock);
+})(t0);
+
+/* ---------- FORMS (not connected yet) ---------- */
+document.getElementById('newsForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('newsMsg').textContent='التسجيل يتفعّل عند إطلاق الموقع.';});
+
+document.getElementById('adForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('adMsg').textContent='النموذج تجريبي، ويتربط ببريد «رقم» عند إطلاق الموقع.';});
+
+/* ---------- FOOTER LOGO (approved logo, built piece by piece) ---------- */
+const fl=document.getElementById('footLogo');
+fl.innerHTML=document.getElementById('logo').innerHTML;
+
+if(!hasST||reduce)return;
+
+/* ---------- SCROLL MOTION ---------- */
+gsap.from('.hero h1, .lede, .cta-row',{y:30,opacity:0,duration:1,ease:'power3.out',stagger:.1,delay:.2});
+gsap.to('.stage',{scale:.9,opacity:.4,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+// horizontal cards pinned
+const track=document.getElementById('hsTrack'),pin=document.getElementById('hsPin');
+const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
+gsap.set(track,{x:()=>-dist()});
+const tw=gsap.to(track,{x:0,ease:'none',scrollTrigger:{trigger:pin,start:'center center',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+track.querySelectorAll('.bigcard').forEach(card=>{
+  gsap.fromTo(card,{rotate:-3,scale:.92},{rotate:0,scale:1,ease:'none',scrollTrigger:{trigger:card,containerAnimation:tw,start:'left right',end:'center center',scrub:true}});
+  const n=card.querySelector('[data-count]');ScrollTrigger.create({trigger:card,containerAnimation:tw,start:'left 85%',once:true,onEnter:()=>countUp(n)});
+});
+
+ScrollTrigger.batch('.card',{start:'top 92%',once:true,onEnter:b=>gsap.fromTo(b,{y:40},{y:0,duration:.8,ease:'power3.out',stagger:.06,clearProps:'transform'})});
+document.querySelectorAll('.stat [data-count]').forEach(n=>ScrollTrigger.create({trigger:n,start:'top 90%',once:true,onEnter:()=>countUp(n)}));
+gsap.fromTo('#bars .fill',{scaleX:.05},{scaleX:1,duration:1.4,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#bars',start:'top 85%'}});
+// footer logo: pieces fly in and lock into the approved logo
+gsap.from(fl.querySelectorAll('rect,path,g'),{x:()=>gsap.utils.random(-120,120),y:()=>gsap.utils.random(-80,80),rotate:()=>gsap.utils.random(-60,60),opacity:0,transformOrigin:'center',ease:'power2.out',stagger:.03,scrollTrigger:{trigger:'footer',start:'top 90%',end:'top 30%',scrub:1}});
+})();
+</script>
+</body>
+</html>
