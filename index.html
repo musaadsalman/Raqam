@@ -175,6 +175,37 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
 .foot-row a:hover{color:var(--ink)}
 @media (max-width:760px){.foot-top{grid-template-columns:minmax(0,1fr);gap:28px}.foot-logo{max-width:180px}}
 
+/* ===== color direction: color-blocked sections stacking like cards ===== */
+.block{position:relative;border-radius:40px 40px 0 0;margin-top:-40px;z-index:1}
+.on-color .eyebrow,.on-color .sec-sub,.on-color .lede,.on-color .hero-label{color:rgba(10,14,19,.74)}
+.hero{background:var(--cyan);position:relative;overflow:hidden;padding-bottom:110px}
+.hero::before{content:"";position:absolute;width:62vw;height:62vw;max-width:820px;max-height:820px;border-radius:50%;background:radial-gradient(circle,rgba(253,255,4,.55),rgba(253,255,4,0) 65%);top:-18%;left:-14%;pointer-events:none}
+.hero::after{content:"";position:absolute;width:48vw;height:48vw;max-width:640px;max-height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,98,121,.42),rgba(255,98,121,0) 65%);bottom:-26%;right:-10%;pointer-events:none}
+.hero > *{position:relative;z-index:1}
+.hero .sticker{background:var(--yellow);box-shadow:3px 3px 0 var(--ink)}
+.hero-dots button{background:rgba(255,255,255,.7)}
+.hero-dots button.on{background:var(--ink)}
+.nav{background:rgba(96,226,252,.92)}
+.nav.scrolled{background:rgba(255,255,255,.92);border-color:var(--line)}
+.nav ul{color:rgba(10,14,19,.7)}
+.nav .btn-main{background:var(--ink);color:#fff}
+.ticker{position:relative;z-index:3;margin-top:-58px;background:var(--yellow);box-shadow:0 8px 0 var(--coral)}
+#week{position:relative;z-index:2;background:var(--bg)}
+.compare{background:var(--yellow)}
+.compare .cmp-panel{box-shadow:8px 8px 0 var(--ink)}
+.compare .field{background:#F4F7F8}
+.card{background:color-mix(in srgb,var(--accent) 26%,#fff)}
+.card h3{color:rgba(10,14,19,.72)}
+.card:hover{background:var(--accent);box-shadow:6px 6px 0 var(--ink)}
+.card .tag{background:#fff}
+.stat .l{color:rgba(10,14,19,.75)}
+#ads .panel{box-shadow:8px 8px 0 var(--ink)}
+#ads .contact{box-shadow:8px 8px 0 var(--ink)}
+#ads .sec-title{color:var(--ink)}
+footer{background:var(--cyan)}
+footer .news p,footer .foot-row{color:rgba(10,14,19,.72)}
+footer .foot-row{border-color:rgba(10,14,19,.15)}
+@media (max-width:760px){.block{border-radius:28px 28px 0 0;margin-top:-28px}.hero{padding-bottom:90px}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 </style>
 </head>
@@ -217,7 +248,7 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
 </header>
 
 <main id="top">
-<section class="hero" aria-label="رقم اليوم">
+<section class="hero on-color" aria-label="رقم اليوم">
   <div class="hero-top">
     <span class="sticker">رقم اليوم</span>
     <p class="hero-label" id="heroLabel"><strong>سكان العالم</strong> — عدد البشر على الأرض اليوم</p>
@@ -262,7 +293,7 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
   </div>
 </section>
 
-<section class="compare" id="compare" aria-labelledby="cmpTitle">
+<section class="compare on-color block" id="compare" aria-labelledby="cmpTitle">
   <div class="wrap">
     <div class="eyebrow">أداة قارن</div>
     <h2 class="sec-title" id="cmpTitle">كم ثانية تحتاج أرامكو عشان تربح راتبك؟</h2>
@@ -301,7 +332,7 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
   </div>
 </section>
 
-<section id="archive" aria-labelledby="arcTitle">
+<section id="archive" class="block" style="background:var(--bg)" aria-labelledby="arcTitle">
   <div class="wrap">
     <div class="eyebrow">الأرشيف</div>
     <h2 class="sec-title" id="arcTitle">كل الأرقام في مكان واحد</h2>
@@ -324,9 +355,9 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
     <h2 class="sec-title" id="aboutTitle">نقرأ العالم برقم واحد</h2>
     <p class="sec-sub">«رقم» منصة عربية تختصر الخبر في رقم واحد، وتحكي القصة اللي وراه بصورة وتصميم يخليك تتذكره.</p>
     <div class="ads-grid">
-      <div class="stat"><div class="n num" data-count="14">14</div><div class="l">رقمًا جديدًا كل أسبوع بين كاروسيل وريلز</div></div>
-      <div class="stat"><div class="n num" data-count="7">7</div><div class="l">تحديات «خمّن الرقم» في الستوري كل أسبوع</div></div>
-      <div class="stat"><div class="n num" data-count="7">7</div><div class="l">تصنيفات من الاقتصاد إلى الألعاب</div></div>
+      <div class="stat" style="background:var(--cyan)"><div class="n num" data-count="14">14</div><div class="l">رقمًا جديدًا كل أسبوع بين كاروسيل وريلز</div></div>
+      <div class="stat" style="background:var(--yellow)"><div class="n num" data-count="7">7</div><div class="l">تحديات «خمّن الرقم» في الستوري كل أسبوع</div></div>
+      <div class="stat" style="background:var(--lime)"><div class="n num" data-count="7">7</div><div class="l">تصنيفات من الاقتصاد إلى الألعاب</div></div>
     </div>
     <div class="ads-grid principles">
       <div class="pr" style="--accent:var(--cyan)"><b>رقم واحد</b><span>كل منشور يدور حول رقم واحد واضح، بدون حشو.</span></div>
@@ -335,8 +366,8 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
     </div>
   </div>
 </section>
-<section id="ads" aria-labelledby="adsTitle" style="background:var(--soft)">
-  <div class="wrap" style="padding-bottom:24px">
+<section id="ads" class="on-color block" style="background:var(--coral)" aria-labelledby="adsTitle">
+  <div class="wrap" style="padding-bottom:96px">
     <div class="eyebrow">للمعلنين والشراكات</div>
     <h2 class="sec-title" id="adsTitle">خل علامتك تصير جزء من القصة</h2>
     <p class="sec-sub">جمهورنا رجال من الخليج بين 25 و44 سنة، يتابعون المال والتقنية والرياضة والسيارات.</p>
@@ -344,10 +375,10 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
       <div class="panel" style="background:#fff">
         <h3>من وين جمهورنا؟</h3>
         <div class="bars" id="bars">
-          <div class="bar"><span>السعودية</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:62%;background:var(--cyan)"></div></div><span class="v num">62%</span></div>
-          <div class="bar"><span>الإمارات</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:19%"></div></div><span class="v num">19%</span></div>
-          <div class="bar"><span>البحرين</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:13%"></div></div><span class="v num">13%</span></div>
-          <div class="bar"><span>دول أخرى</span><div class="track" style="background:var(--soft)"><div class="fill" style="width:6%"></div></div><span class="v num">6%</span></div>
+          <div class="bar"><span>السعودية</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:62%;background:var(--cyan)"></div></div><span class="v num">62%</span></div>
+          <div class="bar"><span>الإمارات</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:19%"></div></div><span class="v num">19%</span></div>
+          <div class="bar"><span>البحرين</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:13%"></div></div><span class="v num">13%</span></div>
+          <div class="bar"><span>دول أخرى</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:6%"></div></div><span class="v num">6%</span></div>
         </div>
       </div>
       <div class="contact">
@@ -368,7 +399,7 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
 </section>
 </main>
 
-<footer>
+<footer class="on-color block">
   <div class="foot-top">
     <svg class="foot-logo" id="footLogo" viewBox="22 20 260 165" role="img" aria-label="رقم"></svg>
     <div class="news">
@@ -376,7 +407,7 @@ footer{background:var(--soft);padding:56px var(--gutter) 28px}
       <p>خمسة أرقام، دقيقتين قراءة.</p>
       <form id="newsForm" novalidate>
         <input id="newsEmail" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
-        <button class="btn btn-main" type="submit">اشترك</button>
+        <button class="btn btn-ink" type="submit">اشترك</button>
       </form>
       <p class="form-msg" id="newsMsg" role="status"></p>
     </div>
@@ -413,7 +444,7 @@ const NUMS=[
 const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
 const lab=document.getElementById('heroLabel'),unitEl=document.getElementById('heroUnit'),dotsEl=document.getElementById('heroDots');
 let W=0,H=0,DPR=Math.min(devicePixelRatio||1,2),parts=[],idx=0,mouse={x:-1e4,y:-1e4},timer;
-const palette=['#0A0E13','#0A0E13','#0A0E13','#60E2FC','#60E2FC','#FF6279'];
+const palette=['#0A0E13','#0A0E13','#0A0E13','#FFFFFF','#FFFFFF','#FDFF04','#FF6279'];
 NUMS.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',o.n+' '+o.unit);b.onclick=()=>{go(i);restart();};dotsEl.appendChild(b);});
 function targets(str){
   const off=document.createElement('canvas');off.width=W;off.height=H;
