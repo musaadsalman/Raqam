@@ -4,7 +4,7 @@
    gaId               : معرّف Google Analytics مثل G-XXXXXXX
    اترك أي قيمة فاضية لين تتجهز الخدمة، والموقع يتعامل معها تلقائيًا. */
 window.RAQAM_CONFIG = {
-  newsletterEndpoint: "",
-  adsEndpoint: "",
+  newsletterEndpoint: "https://script.google.com/macros/s/AKfycbymlXbTcR070knm42Hq40OMHlQDPGLqTXReuUVjhz9EU_oxkGvq35bcM0xMDGD2XXRfDA/exec",
+  adsEndpoint: "https://script.google.com/macros/s/AKfycbymlXbTcR070knm42Hq40OMHlQDPGLqTXReuUVjhz9EU_oxkGvq35bcM0xMDGD2XXRfDA/exec",
   gaId: ""
 };
