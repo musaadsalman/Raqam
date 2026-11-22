@@ -239,6 +239,79 @@ footer{background:var(--cyan)}
 footer .news p,footer .foot-row{color:rgba(10,14,19,.72)}
 footer .foot-row{border-color:rgba(10,14,19,.15)}
 @media (max-width:760px){.block{border-radius:28px 28px 0 0;margin-top:-28px}}
+/* ===== v4: photos, fitting numbers, decorative elements ===== */
+.fit{white-space:nowrap;overflow:hidden;display:block;width:100%}
+.ruler{height:14px;max-width:280px;margin-top:14px;background:
+  repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 14px) bottom/100% 8px no-repeat,
+  repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 70px) bottom/100% 14px no-repeat;opacity:.22}
+.news .ruler,#adsTitle + .ruler{opacity:.3}
+/* hero card */
+.deck{width:min(100%,400px,calc((100vh - 190px) * .74));aspect-ratio:4/5.2}
+.story{padding:18px 20px 20px;gap:0;overflow:visible}
+.story-top{margin-top:12px}
+.story-top svg.mini{width:50px}
+.s-photo{position:relative;flex:1;min-height:0;margin-top:12px;border-radius:18px;overflow:hidden;border:2.5px solid var(--ink);background:var(--ink)}
+.s-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.s-ico{position:absolute;bottom:10px;left:10px;width:44px;height:44px;padding:9px;border-radius:50%;background:#fff;border:2.5px solid var(--ink);color:var(--ink)}
+.story-mid{flex:0 0 auto;margin-top:10px;gap:2px}
+.roll{width:100%;font-size:clamp(56px,7.4vw,100px)}
+.story .unit{font-size:clamp(18px,1.8vw,24px)}
+.story .label{font-size:14px;line-height:1.6}
+@media (max-height:720px) and (min-width:901px){.story .label{display:none}}
+/* week cards */
+.bigcard{height:min(540px,calc(100vh - 130px));min-height:0;padding:16px;gap:14px;justify-content:flex-start;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.bc-photo{position:relative;flex:1;min-height:120px;border-radius:18px;overflow:hidden;border:2.5px solid var(--ink)}
+.bc-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.bigcard:hover .bc-photo img{transform:scale(1.08)}
+.bc-photo .cat{position:absolute;top:12px;right:12px;background:#fff}
+.bc-ico{position:absolute;bottom:12px;left:12px;width:52px;height:52px;border-radius:50%;background:#fff;border:2.5px solid var(--ink);display:grid;place-items:center}
+.bc-ico svg{width:28px;height:28px}
+.bc-photo .corner{border-color:#fff;width:22px;height:22px}
+.bc-photo .corner.tl{top:10px;left:10px}.bc-photo .corner.br{bottom:auto;top:10px;right:auto;left:auto;display:none}
+.bc-body{padding:4px 10px 6px}
+.bigcard .big{font-size:clamp(60px,7vw,104px);line-height:1.1}
+.bigcard .unit{font-size:22px}
+.bigcard .unit span{background:linear-gradient(transparent 58%,rgba(255,255,255,.75) 58%);padding:0 .1em}
+.c-white{background:#fff}.c-white .unit span,.c-yellow .unit span{background:linear-gradient(transparent 58%,var(--cyan) 58%)}
+.bigcard p{margin-top:6px;font-size:15px}
+@media (max-width:900px){.bigcard{height:min(560px,78vh);width:80vw}}
+/* compare polaroids */
+.clock-wrap{position:relative;max-width:420px;width:100%;margin-inline:auto}
+.polaroid{position:absolute;margin:0;background:#fff;padding:8px 8px 6px;border-radius:6px;box-shadow:0 14px 30px rgba(10,14,19,.22);width:34%;z-index:2}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;border-radius:3px}
+.polaroid figcaption{font-family:var(--display);font-weight:800;font-size:14px;text-align:center;padding-top:4px;line-height:1.4}
+.pol-1{top:-6%;right:-8%;transform:rotate(-8deg)}
+.pol-2{bottom:-4%;left:-6%;transform:rotate(6deg);width:28%}
+/* archive stamps */
+.stamp{position:relative;width:64px;height:64px;border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 14px rgba(10,14,19,.18);transform:rotate(-5deg);transition:transform .35s}
+.card:hover .stamp{transform:rotate(4deg) scale(1.12)}
+.stamp img{width:100%;height:100%;object-fit:cover}
+.stamp .ico{position:absolute;bottom:3px;left:3px;width:22px;height:22px;padding:3px;border-radius:6px;background:#fff;color:var(--ink)}
+.card .top{align-items:flex-start}
+.card .n{white-space:nowrap;overflow:hidden}
+/* about collage */
+.collage{position:relative;height:clamp(300px,38vw,460px);margin:44px 0 10px}
+.ph{position:absolute;margin:0;background:#fff;padding:8px;border-radius:10px;box-shadow:0 18px 40px rgba(10,14,19,.2);transform:rotate(var(--r))}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;border-radius:5px}
+.ph b{position:absolute;bottom:-14px;right:14px;font-weight:900;font-size:clamp(18px,2vw,26px);background:var(--yellow);padding:2px 12px;border-radius:8px;border:2.5px solid var(--ink);line-height:1.3}
+.p1{width:24%;height:62%;top:4%;right:2%}
+.p2{width:18%;height:80%;top:10%;right:28%}
+.p3{width:26%;height:52%;top:0;left:30%}
+.p4{width:20%;height:70%;bottom:0;left:6%}
+.p5{width:22%;height:42%;bottom:2%;left:31%}
+.p3 b{background:var(--coral)}.p4 b{background:var(--lime)}.p5 b{background:var(--cyan)}
+.sticker-f{position:absolute;z-index:3;font-family:var(--display);font-weight:800;padding:8px 16px;border-radius:12px;border:3px solid #fff;box-shadow:0 8px 20px rgba(10,14,19,.15);line-height:1.4;animation:bob 6s ease-in-out infinite}
+.s1{background:var(--cyan);top:-4%;left:8%;--r:-6deg}.s2{background:var(--coral);bottom:10%;right:22%;--r:5deg;animation-delay:-2s}
+@media (max-width:760px){
+  .collage{height:420px}
+  .p1{width:44%;height:42%;top:0;right:0}.p2{width:34%;height:48%;top:6%;right:auto;left:4%}
+  .p3{width:46%;height:34%;top:50%;left:auto;right:2%}.p4{width:38%;height:40%;bottom:0;left:2%}.p5{display:none}
+  .s2{bottom:4%;right:38%}
+}
+/* floating hash outlines */
+.hash-deco{position:absolute;width:clamp(120px,16vw,240px);height:auto;color:var(--ink);opacity:.08;pointer-events:none;z-index:0}
+.hd1{top:8%;left:4%}.hd2{top:3%;left:6%;color:var(--cyan);opacity:.5}.hd3{bottom:12%;left:3%;opacity:.12}
+section .wrap{position:relative;z-index:1}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.float{animation:none}}
 </style>
 </head>
@@ -254,6 +327,7 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
       <rect x="135" y="30" width="22" height="22" rx="6" fill="#0A0E13"/><rect x="183" y="30" width="22" height="22" rx="6" fill="#0A0E13"/>
       <path d="M262 92 V120 Q262 166 218 170" fill="none" stroke="#0A0E13" stroke-width="20" stroke-linecap="round"/>
     </symbol>
+    <symbol id="hash" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><rect x="11" y="3" width="5" height="34" rx="1.5"/><rect x="24" y="3" width="5" height="34" rx="1.5"/><rect x="3" y="11" width="34" height="5" rx="1.5"/><rect x="3" y="24" width="34" height="5" rx="1.5"/></g></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></g></symbol>
     <symbol id="i-ball" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4 2.9-1.5 4.7h-5L8 10.4z"/></g></symbol>
     <symbol id="i-oil" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2.8s-6.5 7.6-6.5 12a6.5 6.5 0 0 0 13 0c0-4.4-6.5-12-6.5-12z"/></g></symbol>
@@ -307,14 +381,11 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
             <svg class="mini" viewBox="0 0 260 165" style="overflow:visible" role="img" aria-label="رقم"><use href="#logo"/></svg>
             <span class="chip-cat" id="sCat">عالمي</span>
           </div>
+          <div class="s-photo"><img id="sImg" src="img/crowd.webp" alt="" loading="eager"><svg class="s-ico" id="sIco" aria-hidden="true"><use href="#i-globe"/></svg></div>
           <div class="story-mid">
             <div class="roll num" id="roll" aria-hidden="true"></div>
             <div class="unit"><span id="sUnit">مليار إنسان</span></div>
             <p class="label" id="sLabel">عدد البشر على الأرض اليوم</p>
-          </div>
-          <div class="story-foot">
-            <span class="handle">@raqam.ar</span>
-            <svg class="tico" id="sIco" aria-hidden="true"><use href="#i-globe"/></svg>
           </div>
           <span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
         </article>
@@ -328,28 +399,43 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
 <section id="week" aria-labelledby="weekTitle">
   <div class="hs-head">
     <div class="eyebrow">أرقام الأسبوع</div>
-    <h2 class="sec-title" id="weekTitle">كل رقم وراه قصة</h2>
+    <h2 class="sec-title" id="weekTitle">كل رقم وراه قصة</h2><div class="ruler" aria-hidden="true"></div>
   </div>
   <div class="hs-pin" id="hsPin">
     <div class="hs-track" id="hsTrack">
-      <article class="bigcard c-lime"><div class="row"><span class="cat">اقتصاد</span><svg class="ico" aria-hidden="true"><use href="#i-oil"/></svg></div>
-        <div><div class="big num" data-count="3925" data-prefix="$">$3,925</div><div class="unit">كل ثانية</div><p>صافي ربح أرامكو في ربع واحد بلغ 31.2 مليار دولار.</p></div></article>
-      <article class="bigcard c-coral"><div class="row"><span class="cat">رياضة</span><svg class="ico" aria-hidden="true"><use href="#i-ball"/></svg></div>
-        <div><div class="big num" data-count="936">936</div><div class="unit">هدفًا لميسي</div><p>في 1,181 مباراة رسمية، منها 672 مع برشلونة.</p></div></article>
-      <article class="bigcard c-cyan"><div class="row"><span class="cat">علوم</span><svg class="ico" aria-hidden="true"><use href="#i-meteor"/></svg></div>
-        <div><div class="big num" data-count="71">71</div><div class="unit">كم في الثانية</div><p>سرعة شهب الأسد وهي تدخل الغلاف الجوي.</p></div></article>
-      <article class="bigcard c-yellow"><div class="row"><span class="cat">ألعاب</span><svg class="ico" aria-hidden="true"><use href="#i-game"/></svg></div>
-        <div><div class="big num" data-count="350">350</div><div class="unit">مليون نسخة</div><p>ماينكرافت، اللعبة الأكثر مبيعًا في التاريخ.</p></div></article>
-      <article class="bigcard c-soft"><div class="row"><span class="cat">خليجي</span><svg class="ico" aria-hidden="true"><use href="#i-train"/></svg></div>
-        <div><div class="big num" data-count="176">176</div><div class="unit">كم مترو الرياض</div><p>من أطول شبكات المترو بلا سائق في العالم.</p></div></article>
+      <article class="bigcard c-lime">
+        <div class="bc-photo"><img src="img/oil.webp" alt="أرامكو" loading="lazy"><span class="cat">اقتصاد</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-oil"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="3925" data-prefix="$">$3,925</div><div class="unit"><span>كل ثانية</span></div><p>صافي ربح أرامكو في ربع واحد بلغ 31.2 مليار دولار.</p></div>
+      </article>
+      <article class="bigcard c-coral">
+        <div class="bc-photo"><img src="img/stadium.webp" alt="ميسي" loading="lazy"><span class="cat">رياضة</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-ball"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="936">936</div><div class="unit"><span>هدفًا لميسي</span></div><p>في 1,181 مباراة رسمية، منها 672 مع برشلونة.</p></div>
+      </article>
+      <article class="bigcard c-cyan">
+        <div class="bc-photo"><img src="img/meteor.webp" alt="شهب الأسد" loading="lazy"><span class="cat">علوم</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-meteor"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="71">71</div><div class="unit"><span>كم في الثانية</span></div><p>سرعة شهب الأسد وهي تدخل الغلاف الجوي.</p></div>
+      </article>
+      <article class="bigcard c-yellow">
+        <div class="bc-photo"><img src="img/gaming.webp" alt="ماينكرافت" loading="lazy"><span class="cat">ألعاب</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-game"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="350">350</div><div class="unit"><span>مليون نسخة</span></div><p>ماينكرافت، اللعبة الأكثر مبيعًا في التاريخ.</p></div>
+      </article>
+      <article class="bigcard c-white">
+        <div class="bc-photo"><img src="img/porsche.webp" alt="بورشه 911" loading="lazy"><span class="cat">فخامة</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-car"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="23" data-suffix="%">23%</div><div class="unit"><span>من مبيعات بورشه</span></div><p>سيارة 911 وحدها تمثل قرابة ربع مبيعات الشركة.</p></div>
+      </article>
+      <article class="bigcard c-soft">
+        <div class="bc-photo"><img src="img/riyadh.webp" alt="مترو الرياض" loading="lazy"><span class="cat">خليجي</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-train"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
+        <div class="bc-body"><div class="big num fit" data-count="176">176</div><div class="unit"><span>كم</span></div><p>طول شبكة مترو الرياض، من أطول شبكات المترو بلا سائق.</p></div>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="compare on-color block" id="compare" aria-labelledby="cmpTitle">
+  <svg class="hash-deco hd1" viewBox="0 0 40 40" aria-hidden="true"><use href="#hash"/></svg>
   <div class="wrap">
     <div class="eyebrow">أداة قارن</div>
-    <h2 class="sec-title" id="cmpTitle">كم ثانية تحتاج أرامكو عشان تربح راتبك؟</h2>
+    <h2 class="sec-title" id="cmpTitle">كم ثانية تحتاج أرامكو عشان تربح راتبك؟</h2><div class="ruler" aria-hidden="true"></div>
     <div class="cmp-grid">
       <div class="cmp-panel">
         <label for="salary">راتبك الشهري</label>
@@ -372,6 +458,9 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
         </div>
         <p class="src">على أساس 3,925 دولارًا صافي ربح في الثانية، والدولار = 3.75 ريال.</p>
       </div>
+      <div class="clock-wrap">
+      <figure class="polaroid pol-1" aria-hidden="true"><img src="img/oil.webp" alt=""><figcaption>أرامكو</figcaption></figure>
+      <figure class="polaroid pol-2" aria-hidden="true"><img src="img/bitcoin.webp" alt=""><figcaption class="num">$</figcaption></figure>
       <svg class="clock" viewBox="0 0 400 400" aria-hidden="true">
         <circle cx="200" cy="200" r="160" fill="#fff"/>
         <circle cx="200" cy="200" r="160" fill="none" stroke="#E6ECEE" stroke-width="28"/>
@@ -381,14 +470,16 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
         <text id="dollars" x="200" y="272" text-anchor="middle" font-family="Rubik, sans-serif" font-weight="900" font-size="36" fill="#0A0E13">$0</text>
         <text x="200" y="304" text-anchor="middle" font-family="IBM Plex Sans Arabic" font-weight="500" font-size="17" fill="#5B6670">ربح أرامكو في هذي الثانية</text>
       </svg>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="archive" class="block" style="background:var(--bg)" aria-labelledby="arcTitle">
+  <svg class="hash-deco hd2" viewBox="0 0 40 40" aria-hidden="true"><use href="#hash"/></svg>
   <div class="wrap">
     <div class="eyebrow">الأرشيف</div>
-    <h2 class="sec-title" id="arcTitle">كل الأرقام في مكان واحد</h2>
+    <h2 class="sec-title" id="arcTitle">كل الأرقام في مكان واحد</h2><div class="ruler" aria-hidden="true"></div>
     <div class="filters" role="group" aria-label="التصنيفات">
       <button type="button" class="chip on" data-f="all">الكل</button>
       <button type="button" class="chip" data-f="eco">اقتصاد</button>
@@ -405,12 +496,20 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
 <section id="about" aria-labelledby="aboutTitle">
   <div class="wrap" style="padding-top:0">
     <div class="eyebrow">عن رقم</div>
-    <h2 class="sec-title" id="aboutTitle">نقرأ العالم برقم واحد</h2>
+    <h2 class="sec-title" id="aboutTitle">نقرأ العالم برقم واحد</h2><div class="ruler" aria-hidden="true"></div>
     <p class="sec-sub">«رقم» منصة عربية تختصر الخبر في رقم واحد، وتحكي القصة اللي وراه بصورة وتصميم يخليك تتذكره.</p>
     <div class="ads-grid">
       <div class="stat" style="background:var(--cyan)"><div class="n num" data-count="14">14</div><div class="l">رقمًا جديدًا كل أسبوع بين كاروسيل وريلز</div></div>
       <div class="stat" style="background:var(--yellow)"><div class="n num" data-count="7">7</div><div class="l">تحديات «خمّن الرقم» في الستوري كل أسبوع</div></div>
       <div class="stat" style="background:var(--lime)"><div class="n num" data-count="7">7</div><div class="l">تصنيفات من الاقتصاد إلى الألعاب</div></div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <figure class="ph p1" style="--r:-6deg"><img src="img/earth.webp" alt=""><b class="num">8.2B</b></figure>
+      <figure class="ph p2" style="--r:4deg"><img src="img/burj.webp" alt=""><b class="num">828m</b></figure>
+      <figure class="ph p3" style="--r:-3deg"><img src="img/stadium.webp" alt=""><b class="num">936</b></figure>
+      <figure class="ph p4" style="--r:7deg"><img src="img/dubai.webp" alt=""><b class="num">181,866</b></figure>
+      <figure class="ph p5" style="--r:-8deg"><img src="img/galaxy.webp" alt=""><b class="num">1</b></figure>
+      <span class="sticker-f s1">هل تعلم؟</span><span class="sticker-f s2">قبل وبعد</span>
     </div>
     <div class="ads-grid principles">
       <div class="pr" style="--accent:var(--cyan)"><b>رقم واحد</b><span>كل منشور يدور حول رقم واحد واضح، بدون حشو.</span></div>
@@ -420,9 +519,10 @@ footer .foot-row{border-color:rgba(10,14,19,.15)}
   </div>
 </section>
 <section id="ads" class="on-color block" style="background:var(--coral)" aria-labelledby="adsTitle">
+  <svg class="hash-deco hd3" viewBox="0 0 40 40" aria-hidden="true"><use href="#hash"/></svg>
   <div class="wrap" style="padding-bottom:96px">
     <div class="eyebrow">للمعلنين والشراكات</div>
-    <h2 class="sec-title" id="adsTitle">خل علامتك تصير جزء من القصة</h2>
+    <h2 class="sec-title" id="adsTitle">خل علامتك تصير جزء من القصة</h2><div class="ruler" aria-hidden="true"></div>
     <p class="sec-sub">جمهورنا رجال من الخليج بين 25 و44 سنة، يتابعون المال والتقنية والرياضة والسيارات.</p>
     <div class="ads-split">
       <div class="panel" style="background:#fff">
@@ -486,13 +586,23 @@ const fmt=(n,d=0)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFrac
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
 
+/* ---------- keep big numbers inside their box ---------- */
+function fitText(el){
+  if(!el)return;el.style.fontSize='';
+  let fs=parseFloat(getComputedStyle(el).fontSize);
+  let guard=60;while(el.scrollWidth>el.clientWidth+1&&fs>18&&guard--){fs-=Math.max(2,fs*.05);el.style.fontSize=fs+'px';}
+}
+function fitAll(){document.querySelectorAll('.fit').forEach(fitText);fitText(document.getElementById('roll'));}
+addEventListener('resize',()=>{clearTimeout(window.__fit);window.__fit=setTimeout(fitAll,150);});
+if(document.fonts)document.fonts.ready.then(fitAll);
+
 /* ---------- HERO: story deck with rolling digits ---------- */
 const STORIES=[
- {n:'8.2',  cat:'عالمي', bg:'#FFFFFF', unit:'مليار إنسان',  label:'عدد البشر على الأرض اليوم', ico:'i-globe'},
- {n:'$3,925',cat:'اقتصاد',bg:'#BFFB03', unit:'كل ثانية',     label:'صافي ربح أرامكو في الثانية الواحدة', ico:'i-oil'},
- {n:'936',  cat:'رياضة', bg:'#FF6279', unit:'هدفًا لميسي',  label:'أهدافه الرسمية في 1,181 مباراة', ico:'i-ball'},
- {n:'828',  cat:'خليجي', bg:'#FDFF04', unit:'مترًا',        label:'ارتفاع برج خليفة، أطول مبنى في العالم', ico:'i-tower'},
- {n:'350M', cat:'ألعاب', bg:'#FFFFFF', unit:'نسخة',         label:'مبيعات ماينكرافت، الأعلى في التاريخ', ico:'i-game'}
+ {n:'8.2',  cat:'عالمي', bg:'#FFFFFF', unit:'مليار إنسان',  label:'عدد البشر على الأرض اليوم', ico:'i-globe',img:'crowd'},
+ {n:'$3,925',cat:'اقتصاد',bg:'#BFFB03', unit:'كل ثانية',     label:'صافي ربح أرامكو في الثانية الواحدة', ico:'i-oil',img:'oil'},
+ {n:'936',  cat:'رياضة', bg:'#FF6279', unit:'هدفًا لميسي',  label:'أهدافه الرسمية في 1,181 مباراة', ico:'i-ball',img:'stadium'},
+ {n:'828',  cat:'خليجي', bg:'#FDFF04', unit:'مترًا',        label:'ارتفاع برج خليفة، أطول مبنى في العالم', ico:'i-tower',img:'burj'},
+ {n:'350M', cat:'ألعاب', bg:'#FFFFFF', unit:'نسخة',         label:'مبيعات ماينكرافت، الأعلى في التاريخ', ico:'i-game',img:'gaming'}
 ];
 const story=document.getElementById('story'),back=document.getElementById('storyBack'),roll=document.getElementById('roll');
 const sCat=document.getElementById('sCat'),sUnit=document.getElementById('sUnit'),sLabel=document.getElementById('sLabel'),sIco=document.getElementById('sIco');
@@ -526,8 +636,10 @@ function showStory(i,instant){
   story.classList.toggle('y',o.bg==='#FDFF04');
   sCat.textContent=o.cat;sUnit.textContent=o.unit;sLabel.textContent=o.label;
   sIco.innerHTML='<use href="#'+o.ico+'"/>';
+  const sImg=document.getElementById('sImg');sImg.src='img/'+o.img+'.webp';
+  if(hasG&&!instant&&!reduce)gsap.fromTo(sImg,{scale:1.25,filter:'blur(6px)'},{scale:1,filter:'blur(0px)',duration:1.1,ease:'power3.out'});
   story.setAttribute('aria-label',o.n+' '+o.unit+' — '+o.label);
-  buildRoll(o.n,instant);
+  buildRoll(o.n,instant);fitText(roll);
   barFills.forEach((b,k)=>{b.style.transition='none';b.style.width=k<i?'100%':'0';});
   if(!reduce){barFills[i].getBoundingClientRect();barFills[i].style.transition='width '+DUR+'ms linear';barFills[i].style.width='100%';}
   else barFills[i].style.width='100%';
@@ -540,6 +652,7 @@ function nextStory(){showStory((si+1)%STORIES.length);restartStory();}
 function restartStory(){clearInterval(stimer);if(!reduce)stimer=setInterval(()=>showStory((si+1)%STORIES.length),DUR);}
 story.addEventListener('click',nextStory);
 story.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();nextStory();}});
+STORIES.forEach(o=>{const im=new Image();im.src='img/'+o.img+'.webp';});
 const startHero=()=>{showStory(0,false);restartStory();};
 (document.fonts?document.fonts.load('900 100px Rubik').then(startHero,startHero):startHero());
 // gentle 3D tilt on desktop
@@ -562,11 +675,13 @@ if(hasG&&!reduce){
 function countUp(el){
   const end=parseFloat(el.dataset.count);if(isNaN(end)||!hasG)return;
   const pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',o={v:0};
+  fitText(el);const lock=el.style.fontSize||getComputedStyle(el).fontSize;el.style.fontSize=lock;
   gsap.to(o,{v:end,duration:1.5,ease:'power3.out',onUpdate:()=>{el.textContent=pre+fmt(o.v)+suf;}});
 }
 
 /* ---------- ARCHIVE ---------- */
 const CAT={eco:['اقتصاد','#BFFB03'],sci:['علوم','#60E2FC'],sport:['رياضة','#FF6279'],lux:['فخامة','#FDFF04'],gulf:['خليجي','#60E2FC'],game:['ألعاب','#FDFF04']};
+const PH={'31.2':'oil','936':'stadium','1':'galaxy','350':'gaming','828':'burj','21':'bitcoin','23%':'porsche','181,866':'dubai','176':'riyadh','71':'meteor'};
 const ITEMS=[
  ['eco','i-oil','31.2','مليار دولار','صافي ربح أرامكو في ربع واحد'],
  ['sport','i-ball','936','هدفًا','أهداف ميسي الرسمية في مسيرته'],
@@ -582,7 +697,7 @@ const ITEMS=[
  ['gulf','i-train','176','كم','طول شبكة مترو الرياض']
 ];
 const grid=document.getElementById('grid');
-grid.innerHTML=ITEMS.map(([c,ic,n,u,t])=>`<article class="card" data-c="${c}" style="--accent:${CAT[c][1]}"><div class="top"><span class="tag">${CAT[c][0]}</span><svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg></div><div><div class="n num">${n}</div><div class="u">${u}</div><h3>${t}</h3></div></article>`).join('');
+grid.innerHTML=ITEMS.map(([c,ic,n,u,t])=>`<article class="card" data-c="${c}" style="--accent:${CAT[c][1]}"><div class="top"><span class="tag">${CAT[c][0]}</span>${PH[n]?`<span class="stamp"><img src="img/${PH[n]}.webp" alt="" loading="lazy"><svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg></span>`:`<svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg>`}</div><div><div class="n num">${n}</div><div class="u">${u}</div><h3>${t}</h3></div></article>`).join('');
 document.querySelectorAll('.filters .chip').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.filters .chip').forEach(x=>x.classList.toggle('on',x===b));
   const f=b.dataset.f,shown=[];
@@ -639,7 +754,7 @@ const mm=gsap.matchMedia();
 mm.add('(min-width: 901px)',()=>{
   const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
   gsap.set(track,{x:()=>-dist()});
-  const tw=gsap.to(track,{x:0,ease:'none',scrollTrigger:{trigger:pin,start:'center center',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+  const tw=gsap.to(track,{x:0,ease:'none',scrollTrigger:{trigger:pin,start:'top 84px',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
   track.querySelectorAll('.bigcard').forEach(card=>{
     gsap.fromTo(card,{rotate:-3,scale:.92},{rotate:0,scale:1,ease:'none',scrollTrigger:{trigger:card,containerAnimation:tw,start:'left right',end:'center center',scrub:true}});
     const n=card.querySelector('[data-count]');ScrollTrigger.create({trigger:card,containerAnimation:tw,start:'left 85%',once:true,onEnter:()=>countUp(n)});
@@ -651,6 +766,9 @@ mm.add('(max-width: 900px)',()=>{
   });
 });
 
+gsap.utils.toArray('.collage .ph').forEach((p,i)=>gsap.fromTo(p,{y:60+i*14,rotate:0},{y:-20-i*8,rotate:()=>p.style.getPropertyValue('--r'),ease:'none',scrollTrigger:{trigger:'.collage',start:'top bottom',end:'bottom top',scrub:true}}));
+gsap.utils.toArray('.polaroid').forEach((p,i)=>gsap.fromTo(p,{y:40,rotate:i?14:-16},{y:-30,rotate:i?6:-8,ease:'none',scrollTrigger:{trigger:'.compare',start:'top bottom',end:'bottom top',scrub:true}}));
+gsap.utils.toArray('.hash-deco').forEach((h,i)=>gsap.to(h,{rotate:i%2?-120:120,y:i%2?-80:80,ease:'none',scrollTrigger:{trigger:h.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
 ScrollTrigger.batch('.card',{start:'top 92%',once:true,onEnter:b=>gsap.fromTo(b,{y:40},{y:0,duration:.8,ease:'power3.out',stagger:.06,clearProps:'transform'})});
 document.querySelectorAll('.stat [data-count]').forEach(n=>ScrollTrigger.create({trigger:n,start:'top 90%',once:true,onEnter:()=>countUp(n)}));
 gsap.fromTo('#bars .fill',{scaleX:.05},{scaleX:1,duration:1.4,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#bars',start:'top 85%'}});
