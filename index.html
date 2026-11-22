@@ -9,6 +9,22 @@
 <meta property="og:title" content="رقم | حقائق وأرقام">
 <meta property="og:description" content="الرقم اللي ما توقعته. حقيقة مدهشة كل يوم.">
 <meta property="og:url" content="https://raqam.site/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="رقم">
+<meta property="og:image" content="https://raqam.site/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="رقم — الرقم اللي ما توقعته">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="رقم | حقائق وأرقام">
+<meta name="twitter:description" content="الرقم اللي ما توقعته. حقيقة مدهشة كل يوم.">
+<meta name="twitter:image" content="https://raqam.site/assets/og.jpg">
+<meta name="theme-color" content="#60E2FC">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
@@ -334,6 +350,14 @@ section .wrap{position:relative;z-index:1}
   background:repeating-linear-gradient(90deg,rgba(10,14,19,.35) 0 2px,transparent 2px 10px) bottom/100% 8px no-repeat}
 .wk-ruler b{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--coral);transform-origin:left;transform:scaleX(0);border-radius:2px}
 @media (max-width:900px){.wk-progress,.wk-tag,.wk-dot{display:none}.wk-giant{font-size:150px}}
+/* forms */
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
+.form-msg[data-kind="ok"]{color:#0A7A3E}
+.form-msg[data-kind="err"]{color:#B3122E}
+.contact .form-msg[data-kind="ok"],.contact .form-msg[data-kind="err"]{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px}
+.form-note{font-size:13px;color:rgba(10,14,19,.7);margin-top:4px}
+.form-note a,.foot-row a[href="privacy.html"]{text-decoration:underline;text-underline-offset:3px}
+button:disabled{opacity:.6;cursor:wait}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.float{animation:none}}
 </style>
 </head>
@@ -571,14 +595,16 @@ section .wrap{position:relative;z-index:1}
       <div class="contact">
         <h3>احجز مساحتك في الرقم الجاي</h3>
         <p>نرد عليك خلال يوم عمل بالتفاصيل والأسعار.</p>
-        <form id="adForm" novalidate>
-          <input id="adName" placeholder="اسم الجهة" aria-label="اسم الجهة">
-          <input id="adEmail" type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني">
-          <select id="adType" class="full" aria-label="نوع الإعلان">
+        <form id="adForm" novalidate data-form="ads">
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input id="adName" name="company" placeholder="اسم الجهة" aria-label="اسم الجهة" required autocomplete="organization">
+          <input id="adEmail" name="email" type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني" required autocomplete="email">
+          <select id="adType" name="type" class="full" aria-label="نوع الإعلان">
             <option>رقم الأسبوع برعايتك</option><option>ريل موشن مخصص</option><option>ستوري «خمّن الرقم»</option><option>كاروسيل «قارن»</option>
           </select>
           <button class="btn btn-ink full" type="submit">أرسل الطلب</button>
           <p class="form-msg" id="adMsg" role="status"></p>
+          <p class="form-note full">بإرسال الطلب توافق على <a href="privacy.html">سياسة الخصوصية</a>.</p>
         </form>
       </div>
     </div>
@@ -592,21 +618,25 @@ section .wrap{position:relative;z-index:1}
     <div class="news">
       <h3>أرقام الأسبوع في بريدك كل جمعة</h3>
       <p>خمسة أرقام، دقيقتين قراءة.</p>
-      <form id="newsForm" novalidate>
-        <input id="newsEmail" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+      <form id="newsForm" novalidate data-form="news">
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input id="newsEmail" name="email" type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني" required autocomplete="email">
         <button class="btn btn-ink" type="submit">اشترك</button>
       </form>
       <p class="form-msg" id="newsMsg" role="status"></p>
+      <p class="form-note">نرسل نشرة وحدة كل جمعة، وتقدر تلغي اشتراكك متى ما بغيت. <a href="privacy.html">الخصوصية</a></p>
     </div>
   </div>
   <div class="foot-row">
     <span>رقم | حقائق وأرقام</span>
     <a href="#ads">أعلن معنا</a>
     <a href="https://www.instagram.com/raqam.ar/" class="num">@raqam.ar</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
     <span class="num">© 2026</span>
   </div>
 </footer>
 
+<script src="config.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -710,23 +740,16 @@ function countUp(el){
 
 /* ---------- ARCHIVE ---------- */
 const CAT={eco:['اقتصاد','#BFFB03'],sci:['علوم','#60E2FC'],sport:['رياضة','#FF6279'],lux:['فخامة','#FDFF04'],gulf:['خليجي','#60E2FC'],game:['ألعاب','#FDFF04']};
-const PH={'31.2':'oil','936':'stadium','1':'galaxy','350':'gaming','828':'burj','21':'bitcoin','23%':'porsche','181,866':'dubai','176':'riyadh','71':'meteor'};
-const ITEMS=[
- ['eco','i-oil','31.2','مليار دولار','صافي ربح أرامكو في ربع واحد'],
- ['sport','i-ball','936','هدفًا','أهداف ميسي الرسمية في مسيرته'],
- ['sci','i-sat','1','يوم ضوئي','المسافة اللي قطعها المسبار فوييجر 1'],
- ['game','i-game','350','مليون نسخة','مبيعات ماينكرافت، الأعلى في التاريخ'],
- ['gulf','i-tower','828','مترًا','ارتفاع برج خليفة'],
- ['eco','i-coin','21','مليون','الحد الأقصى لعدد البيتكوين'],
- ['sci','i-heart','100K','نبضة','ينبضها قلبك كل يوم تقريبًا'],
- ['lux','i-car','23%','من مبيعات بورشه','نصيب سيارة 911 وحدها'],
- ['gulf','i-home','181,866','صفقة','تداولات عقارات دبي في سنة'],
- ['game','i-game','13','سنة','الفجوة بين GTA V وGTA VI'],
- ['sci','i-meteor','71','كم/ث','سرعة شهب الأسد'],
- ['gulf','i-train','176','كم','طول شبكة مترو الرياض']
-];
+const ARCHIVE_FALLBACK=[{"cat": "eco", "icon": "i-oil", "number": "31.2", "unit": "مليار دولار", "text": "صافي ربح أرامكو في ربع واحد", "image": "img/oil.webp"}, {"cat": "sport", "icon": "i-ball", "number": "936", "unit": "هدفًا", "text": "أهداف ميسي الرسمية في مسيرته", "image": "img/stadium.webp"}, {"cat": "sci", "icon": "i-sat", "number": "1", "unit": "يوم ضوئي", "text": "المسافة اللي قطعها المسبار فوييجر 1", "image": "img/galaxy.webp"}, {"cat": "game", "icon": "i-game", "number": "350", "unit": "مليون نسخة", "text": "مبيعات ماينكرافت، الأعلى في التاريخ", "image": "img/gaming.webp"}, {"cat": "gulf", "icon": "i-tower", "number": "828", "unit": "مترًا", "text": "ارتفاع برج خليفة", "image": "img/burj.webp"}, {"cat": "eco", "icon": "i-coin", "number": "21", "unit": "مليون", "text": "الحد الأقصى لعدد البيتكوين", "image": "img/bitcoin.webp"}, {"cat": "sci", "icon": "i-heart", "number": "100K", "unit": "نبضة", "text": "ينبضها قلبك كل يوم تقريبًا"}, {"cat": "lux", "icon": "i-car", "number": "23%", "unit": "من مبيعات بورشه", "text": "نصيب سيارة 911 وحدها", "image": "img/porsche.webp"}, {"cat": "gulf", "icon": "i-home", "number": "181,866", "unit": "صفقة", "text": "تداولات عقارات دبي في سنة", "image": "img/dubai.webp"}, {"cat": "game", "icon": "i-game", "number": "13", "unit": "سنة", "text": "الفجوة بين GTA V وGTA VI"}, {"cat": "sci", "icon": "i-meteor", "number": "71", "unit": "كم/ث", "text": "سرعة شهب الأسد", "image": "img/meteor.webp"}, {"cat": "gulf", "icon": "i-train", "number": "176", "unit": "كم", "text": "طول شبكة مترو الرياض", "image": "img/riyadh.webp"}];
 const grid=document.getElementById('grid');
-grid.innerHTML=ITEMS.map(([c,ic,n,u,t])=>`<article class="card" data-c="${c}" style="--accent:${CAT[c][1]}"><div class="top"><span class="tag">${CAT[c][0]}</span>${PH[n]?`<span class="stamp"><img src="img/${PH[n]}.webp" alt="" loading="lazy"><svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg></span>`:`<svg class="ico" aria-hidden="true"><use href="#${ic}"/></svg>`}</div><div><div class="n num">${n}</div><div class="u">${u}</div><h3>${t}</h3></div></article>`).join('');
+function renderArchive(list){
+  grid.innerHTML=list.map(o=>{const cat=CAT[o.cat]||CAT.eco;
+    const media=o.image?`<span class="stamp"><img src="${o.image}" alt="" loading="lazy"><svg class="ico" aria-hidden="true"><use href="#${o.icon}"/></svg></span>`:`<svg class="ico" aria-hidden="true"><use href="#${o.icon}"/></svg>`;
+    return `<article class="card" data-c="${o.cat}" style="--accent:${cat[1]}"><div class="top"><span class="tag">${cat[0]}</span>${media}</div><div><div class="n num">${o.number}</div><div class="u">${o.unit}</div><h3>${o.text}</h3></div></article>`;}).join('');
+  const on=document.querySelector('.filters .chip.on');if(on&&on.dataset.f!=='all')on.click();
+}
+renderArchive(ARCHIVE_FALLBACK);
+fetch('data/numbers.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&Array.isArray(d.items)&&d.items.length)renderArchive(d.items);}).catch(()=>{});
 document.querySelectorAll('.filters .chip').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.filters .chip').forEach(x=>x.classList.toggle('on',x===b));
   const f=b.dataset.f,shown=[];
@@ -762,10 +785,40 @@ const t0=performance.now();
   if(!reduce)requestAnimationFrame(tickClock);
 })(t0);
 
-/* ---------- FORMS (not connected yet) ---------- */
-document.getElementById('newsForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('newsMsg').textContent='التسجيل يتفعّل عند إطلاق الموقع.';});
+/* ---------- FORMS: spam guard, validation, states; endpoints live in config.js ---------- */
+const SITE=window.RAQAM_CONFIG||{};
+const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const pageStart=Date.now();
+function setMsg(el,text,kind){el.textContent=text;el.dataset.kind=kind||'';}
+function wireForm(form,{endpoint,msgEl,okText,validate}){
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const fd=new FormData(form);
+    // spam guard: hidden field filled or submitted too fast = silent drop
+    if(fd.get('website')||Date.now()-pageStart<2500){setMsg(msgEl,okText,'ok');form.reset();return;}
+    const err=validate(fd);if(err){setMsg(msgEl,err,'err');return;}
+    if(!endpoint){setMsg(msgEl,'الخدمة قيد الربط حاليًا. تابعنا على إنستقرام \u2066@raqam.ar\u2069 لين نفعّلها.','err');return;}
+    const btn=form.querySelector('button[type=submit]');btn.disabled=true;const label=btn.textContent;btn.textContent='جارٍ الإرسال…';
+    fd.delete('website');fd.append('page',location.href);fd.append('sent_at',new Date().toISOString());
+    try{
+      await fetch(endpoint,{method:'POST',body:fd,mode:'no-cors'});
+      setMsg(msgEl,okText,'ok');form.reset();
+    }catch(_){setMsg(msgEl,'ما قدرنا نرسل الحين. تأكد من الاتصال وجرّب مرة ثانية.','err');}
+    finally{btn.disabled=false;btn.textContent=label;}
+  });
+}
+wireForm(document.getElementById('newsForm'),{endpoint:SITE.newsletterEndpoint,msgEl:document.getElementById('newsMsg'),
+  okText:'تم! أول نشرة توصلك يوم الجمعة.',validate:fd=>EMAIL_RE.test((fd.get('email')||'').trim())?'':'اكتب بريد إلكتروني صحيح.'});
+wireForm(document.getElementById('adForm'),{endpoint:SITE.adsEndpoint,msgEl:document.getElementById('adMsg'),
+  okText:'وصلنا طلبك، ونرد عليك خلال يوم عمل.',validate:fd=>{
+    if(!(fd.get('company')||'').trim())return 'اكتب اسم الجهة.';
+    if(!EMAIL_RE.test((fd.get('email')||'').trim()))return 'اكتب بريد إلكتروني صحيح.';return '';}});
 
-document.getElementById('adForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('adMsg').textContent='النموذج تجريبي، ويتربط ببريد «رقم» عند إطلاق الموقع.';});
+/* ---------- ANALYTICS: loads only when an ID is set in config.js ---------- */
+if(SITE.gaId){
+  const g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+SITE.gaId;document.head.appendChild(g);
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',SITE.gaId);
+}
 
 /* ---------- FOOTER LOGO (approved logo, built piece by piece) ---------- */
 const fl=document.getElementById('footLogo');

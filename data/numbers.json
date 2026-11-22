@@ -1,0 +1,100 @@
+{
+ "_note": "أرشيف أرقام «رقم». أضف الأرقام الجديدة في أول القائمة. cat: eco/sci/sport/lux/gulf/game",
+ "updated": "2026-11-22",
+ "items": [
+  {
+   "cat": "eco",
+   "icon": "i-oil",
+   "number": "31.2",
+   "unit": "مليار دولار",
+   "text": "صافي ربح أرامكو في ربع واحد",
+   "image": "img/oil.webp"
+  },
+  {
+   "cat": "sport",
+   "icon": "i-ball",
+   "number": "936",
+   "unit": "هدفًا",
+   "text": "أهداف ميسي الرسمية في مسيرته",
+   "image": "img/stadium.webp"
+  },
+  {
+   "cat": "sci",
+   "icon": "i-sat",
+   "number": "1",
+   "unit": "يوم ضوئي",
+   "text": "المسافة اللي قطعها المسبار فوييجر 1",
+   "image": "img/galaxy.webp"
+  },
+  {
+   "cat": "game",
+   "icon": "i-game",
+   "number": "350",
+   "unit": "مليون نسخة",
+   "text": "مبيعات ماينكرافت، الأعلى في التاريخ",
+   "image": "img/gaming.webp"
+  },
+  {
+   "cat": "gulf",
+   "icon": "i-tower",
+   "number": "828",
+   "unit": "مترًا",
+   "text": "ارتفاع برج خليفة",
+   "image": "img/burj.webp"
+  },
+  {
+   "cat": "eco",
+   "icon": "i-coin",
+   "number": "21",
+   "unit": "مليون",
+   "text": "الحد الأقصى لعدد البيتكوين",
+   "image": "img/bitcoin.webp"
+  },
+  {
+   "cat": "sci",
+   "icon": "i-heart",
+   "number": "100K",
+   "unit": "نبضة",
+   "text": "ينبضها قلبك كل يوم تقريبًا"
+  },
+  {
+   "cat": "lux",
+   "icon": "i-car",
+   "number": "23%",
+   "unit": "من مبيعات بورشه",
+   "text": "نصيب سيارة 911 وحدها",
+   "image": "img/porsche.webp"
+  },
+  {
+   "cat": "gulf",
+   "icon": "i-home",
+   "number": "181,866",
+   "unit": "صفقة",
+   "text": "تداولات عقارات دبي في سنة",
+   "image": "img/dubai.webp"
+  },
+  {
+   "cat": "game",
+   "icon": "i-game",
+   "number": "13",
+   "unit": "سنة",
+   "text": "الفجوة بين GTA V وGTA VI"
+  },
+  {
+   "cat": "sci",
+   "icon": "i-meteor",
+   "number": "71",
+   "unit": "كم/ث",
+   "text": "سرعة شهب الأسد",
+   "image": "img/meteor.webp"
+  },
+  {
+   "cat": "gulf",
+   "icon": "i-train",
+   "number": "176",
+   "unit": "كم",
+   "text": "طول شبكة مترو الرياض",
+   "image": "img/riyadh.webp"
+  }
+ ]
+}
