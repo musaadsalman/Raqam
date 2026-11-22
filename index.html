@@ -69,8 +69,8 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.35}
 .story-top svg.mini{width:58px;height:auto}
 .story .chip-cat{font-family:var(--display);font-weight:800;font-size:13px;padding:4px 13px;border:2px solid var(--ink);border-radius:999px;background:#fff;line-height:1.5}
 .story-mid{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
-.roll{display:flex;direction:ltr;justify-content:flex-end;font-family:var(--display);font-weight:900;font-size:clamp(74px,10vw,138px);line-height:1.12;letter-spacing:-.02em;height:1.12em;overflow:hidden}
-.roll .ch{display:inline-block;height:1.12em}
+.roll{display:flex;direction:ltr;justify-content:flex-end;font-variant-numeric:tabular-nums;font-family:var(--display);font-weight:900;font-size:clamp(74px,10vw,138px);line-height:1.12;letter-spacing:-.02em;height:1.12em;overflow:hidden}
+.roll .ch{display:inline-block;height:1.12em;min-width:.1em;text-align:center}
 .roll .reel{display:inline-block;height:1.12em;overflow:hidden;position:relative}
 .roll .strip{display:flex;flex-direction:column;transition:transform 1.25s cubic-bezier(.2,.9,.15,1)}
 .roll .strip span{height:1.12em;display:block;text-align:center}
@@ -611,24 +611,19 @@ STORIES.forEach(()=>barsEl.insertAdjacentHTML('beforeend','<i><b></b></i>'));
 const barFills=[...barsEl.querySelectorAll('b')];
 let si=0,stimer;const DUR=4200;
 function buildRoll(str,instant){
-  roll.innerHTML='';
-  [...str].forEach((c,k)=>{
-    if(/\d/.test(c)){
-      const reel=document.createElement('span');reel.className='reel';
-      const strip=document.createElement('span');strip.className='strip';
-      for(let d=0;d<10;d++){const sp=document.createElement('span');sp.textContent=d;strip.appendChild(sp);}
-      reel.appendChild(strip);roll.appendChild(reel);
-      const target=+c;
-      if(instant||reduce){strip.style.transition='none';strip.style.transform=`translateY(${-target*10}%)`;}
-      else{
-        const startD=(target+5+k)%10;
-        strip.style.transition='none';strip.style.transform=`translateY(${-startD*10}%)`;
-        strip.getBoundingClientRect();
-        strip.style.transition='';strip.style.transitionDelay=(k*90)+'ms';
-        requestAnimationFrame(()=>{strip.style.transform=`translateY(${-target*10}%)`;});
-      }
-    }else{const ch=document.createElement('span');ch.className='ch';ch.textContent=c;roll.appendChild(ch);}
-  });
+  // whole digits only: each digit shuffles through random digits, then locks in place
+  clearInterval(window.__scr);roll.innerHTML='';
+  const spans=[...str].map(c=>{const sp=document.createElement('span');sp.className='ch';sp.textContent=c;roll.appendChild(sp);return{sp,c,d:/\d/.test(c)};});
+  if(instant||reduce)return;
+  const t0=performance.now();
+  spans.forEach((o,k)=>{o.end=380+k*130;if(o.d)o.sp.textContent=(Math.random()*10)|0;});
+  window.__scr=setInterval(()=>{
+    const t=performance.now()-t0;let live=false;
+    spans.forEach(o=>{if(!o.d||o.done)return;
+      if(t>=o.end){o.sp.textContent=o.c;o.done=true;if(hasG)gsap.fromTo(o.sp,{y:-14,scale:1.15},{y:0,scale:1,duration:.45,ease:'back.out(3)'});}
+      else{o.sp.textContent=(Math.random()*10)|0;live=true;}});
+    if(!live)clearInterval(window.__scr);
+  },55);
 }
 function showStory(i,instant){
   si=i;const o=STORIES[i],nx=STORIES[(i+1)%STORIES.length];
