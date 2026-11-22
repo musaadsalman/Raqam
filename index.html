@@ -728,7 +728,7 @@ const T=[['8.2 مليار','سكان العالم'],['$3,925','أرامكو كل
 let h='';for(let r=0;r<2;r++)T.forEach(a=>{h+='<span class="ticker-item"><i></i><b class="num">'+a[0]+'</b><span>'+a[1]+'</span></span>';});
 const tk=document.getElementById('ticker');tk.innerHTML=h;
 if(hasG&&!reduce){
-  const loop=gsap.fromTo(tk,{xPercent:0},{xPercent:-50,repeat:-1,duration:32,ease:'none'});
+  const loop=gsap.fromTo(tk,{xPercent:-50},{xPercent:0,repeat:-1,duration:32,ease:'none'});
   if(hasST)ScrollTrigger.create({onUpdate:s=>{const v=Math.min(Math.abs(s.getVelocity())/500,4);gsap.to(loop,{timeScale:1+v,duration:.2,overwrite:true});clearTimeout(window.__tk);window.__tk=setTimeout(()=>gsap.to(loop,{timeScale:1,duration:.8}),150);}});
 }
 
