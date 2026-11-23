@@ -350,6 +350,10 @@ section .wrap{position:relative;z-index:1}
   background:repeating-linear-gradient(90deg,rgba(10,14,19,.35) 0 2px,transparent 2px 10px) bottom/100% 8px no-repeat}
 .wk-ruler b{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--coral);transform-origin:left;transform:scaleX(0);border-radius:2px}
 @media (max-width:900px){.wk-progress,.wk-tag,.wk-dot{display:none}.wk-giant{font-size:150px}}
+/* ads live stats */
+.ads-stats{margin-top:30px}
+#ads .stat{background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.stats-note{font-size:13px;color:rgba(10,14,19,.7);margin-top:12px}
 /* forms */
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
 .form-msg[data-kind="ok"]{color:#0A7A3E}
@@ -450,10 +454,10 @@ button:disabled{opacity:.6;cursor:wait}
   </div>
 
   <div class="hs-pin" id="hsPin">
-    <div class="wk-progress" aria-hidden="true"><span class="num" id="wkCount">01</span><span class="num wk-total">/ 06</span><div class="wk-ruler"><b id="wkFill"></b></div></div>
+    <div class="wk-progress" aria-hidden="true"><span class="num" id="wkCount">01</span><span class="num wk-total"><!--B:wktotal-->/ 06<!--/B:wktotal--></span><div class="wk-ruler"><b id="wkFill"></b></div></div>
     <div class="wk-bg" aria-hidden="true">
       <div class="wk-cells"></div>
-      <div class="wk-giant num" id="wkGiant">$3,925 · 936 · 71 · 350M · 23% · 176 · $3,925 · 936 · 71 ·</div>
+      <div class="wk-giant num" id="wkGiant"><!--B:giant-->$3,925 · 936 · 71 · 350 · 23% · 176 · $3,925 · 936 · 71 · 350 · 23% · 176 ·<!--/B:giant--></div>
       <svg class="wk-hash h1"><use href="#hash"/></svg>
       <svg class="wk-hash h2"><use href="#hash"/></svg>
       <span class="wk-dot d1"></span><span class="wk-dot d2"></span><span class="wk-dot d3"></span>
@@ -461,6 +465,7 @@ button:disabled{opacity:.6;cursor:wait}
       <span class="wk-tag t2">اسحب ←</span>
     </div>
     <div class="hs-track" id="hsTrack">
+<!--B:week-->
       <article class="bigcard c-lime">
         <div class="bc-photo"><img src="img/oil.webp" alt="أرامكو" loading="lazy"><span class="cat">اقتصاد</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-oil"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
         <div class="bc-body"><div class="big num fit" data-count="3925" data-prefix="$">$3,925</div><div class="unit"><span>كل ثانية</span></div><p>صافي ربح أرامكو في ربع واحد بلغ 31.2 مليار دولار.</p></div>
@@ -485,6 +490,7 @@ button:disabled{opacity:.6;cursor:wait}
         <div class="bc-photo"><img src="img/riyadh.webp" alt="مترو الرياض" loading="lazy"><span class="cat">خليجي</span><span class="bc-ico"><svg aria-hidden="true"><use href="#i-train"/></svg></span><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span></div>
         <div class="bc-body"><div class="big num fit" data-count="176">176</div><div class="unit"><span>كم</span></div><p>طول شبكة مترو الرياض، من أطول شبكات المترو بلا سائق.</p></div>
       </article>
+<!--/B:week-->
     </div>
   </div>
 </section>
@@ -582,14 +588,18 @@ button:disabled{opacity:.6;cursor:wait}
     <div class="eyebrow">للمعلنين والشراكات</div>
     <h2 class="sec-title" id="adsTitle">خل علامتك تصير جزء من القصة</h2><div class="ruler" aria-hidden="true"></div>
     <p class="sec-sub">جمهورنا رجال من الخليج بين 25 و44 سنة، يتابعون المال والتقنية والرياضة والسيارات.</p>
+    <div class="ads-grid ads-stats"><!--B:adsstats--><div class="stat"><div class="n num">38.5K</div><div class="l">حساب وصلنا له خلال آخر 28 يوم</div></div><div class="stat"><div class="n num">43.6K</div><div class="l">مشاهدة لمحتوى «رقم» خلال آخر 28 يوم</div></div><div class="stat"><div class="n num">61%</div><div class="l">من جمهورنا بين 25–44 سنة</div></div><!--/B:adsstats--></div>
+    <p class="stats-note"><!--B:asof-->أرقام إنستقرام @raqam.ar، محدّثة في 23/11/2026.<!--/B:asof--></p>
     <div class="ads-split">
       <div class="panel" style="background:#fff">
         <h3>من وين جمهورنا؟</h3>
         <div class="bars" id="bars">
-          <div class="bar"><span>السعودية</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:62%;background:var(--cyan)"></div></div><span class="v num">62%</span></div>
-          <div class="bar"><span>الإمارات</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:19%"></div></div><span class="v num">19%</span></div>
-          <div class="bar"><span>البحرين</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:13%"></div></div><span class="v num">13%</span></div>
-          <div class="bar"><span>دول أخرى</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:6%"></div></div><span class="v num">6%</span></div>
+<!--B:bars-->
+          <div class="bar"><span>السعودية</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:65%;background:var(--cyan)"></div></div><span class="v num">65%</span></div>
+          <div class="bar"><span>الإمارات</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:15%"></div></div><span class="v num">15%</span></div>
+          <div class="bar"><span>البحرين</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:11%"></div></div><span class="v num">11%</span></div>
+          <div class="bar"><span>دول أخرى</span><div class="track" style="background:#EEF2F3"><div class="fill" style="width:9%"></div></div><span class="v num">9%</span></div>
+<!--/B:bars-->
         </div>
       </div>
       <div class="contact">
@@ -663,13 +673,7 @@ addEventListener('resize',()=>{clearTimeout(window.__fit);window.__fit=setTimeou
 if(document.fonts)document.fonts.ready.then(fitAll);
 
 /* ---------- HERO: story deck with rolling digits ---------- */
-const STORIES=[
- {n:'8.2',  cat:'عالمي', bg:'#FFFFFF', unit:'مليار إنسان',  label:'عدد البشر على الأرض اليوم', ico:'i-globe',img:'crowd'},
- {n:'$3,925',cat:'اقتصاد',bg:'#BFFB03', unit:'كل ثانية',     label:'صافي ربح أرامكو في الثانية الواحدة', ico:'i-oil',img:'oil'},
- {n:'936',  cat:'رياضة', bg:'#FF6279', unit:'هدفًا لميسي',  label:'أهدافه الرسمية في 1,181 مباراة', ico:'i-ball',img:'stadium'},
- {n:'828',  cat:'خليجي', bg:'#FDFF04', unit:'مترًا',        label:'ارتفاع برج خليفة، أطول مبنى في العالم', ico:'i-tower',img:'burj'},
- {n:'350M', cat:'ألعاب', bg:'#FFFFFF', unit:'نسخة',         label:'مبيعات ماينكرافت، الأعلى في التاريخ', ico:'i-game',img:'gaming'}
-];
+/*B:stories*/const STORIES=[{"n": "8.2", "cat": "عالمي", "bg": "#FFFFFF", "unit": "مليار إنسان", "label": "عدد البشر على الأرض اليوم", "ico": "i-globe", "img": "crowd"}, {"n": "$3,925", "cat": "اقتصاد", "bg": "#BFFB03", "unit": "كل ثانية", "label": "صافي ربح أرامكو في الثانية الواحدة", "ico": "i-oil", "img": "oil"}, {"n": "936", "cat": "رياضة", "bg": "#FF6279", "unit": "هدفًا لميسي", "label": "أهدافه الرسمية في 1,181 مباراة", "ico": "i-ball", "img": "stadium"}, {"n": "828", "cat": "خليجي", "bg": "#FDFF04", "unit": "مترًا", "label": "ارتفاع برج خليفة، أطول مبنى في العالم", "ico": "i-tower", "img": "burj"}, {"n": "350M", "cat": "ألعاب", "bg": "#FFFFFF", "unit": "نسخة", "label": "مبيعات ماينكرافت، الأعلى في التاريخ", "ico": "i-game", "img": "gaming"}];/*/B:stories*/
 const story=document.getElementById('story'),back=document.getElementById('storyBack'),roll=document.getElementById('roll');
 const sCat=document.getElementById('sCat'),sUnit=document.getElementById('sUnit'),sLabel=document.getElementById('sLabel'),sIco=document.getElementById('sIco');
 const barsEl=document.getElementById('bars5');
@@ -724,7 +728,7 @@ if(matchMedia('(pointer:fine)').matches&&!reduce&&hasG){
 }
 
 /* ---------- TICKER ---------- */
-const T=[['8.2 مليار','سكان العالم'],['$3,925','أرامكو كل ثانية'],['936','أهداف ميسي'],['350M','نسخ ماينكرافت'],['828 م','برج خليفة'],['176 كم','مترو الرياض'],['21M','بيتكوين']];
+/*B:ticker*/const T=[["8.2 مليار", "سكان العالم"], ["$3,925", "أرامكو كل ثانية"], ["936", "أهداف ميسي"], ["350M", "نسخ ماينكرافت"], ["828 م", "برج خليفة"], ["176 كم", "مترو الرياض"], ["21M", "بيتكوين"]];/*/B:ticker*/
 let h='';for(let r=0;r<2;r++)T.forEach(a=>{h+='<span class="ticker-item"><i></i><b class="num">'+a[0]+'</b><span>'+a[1]+'</span></span>';});
 const tk=document.getElementById('ticker');tk.innerHTML=h;
 if(hasG&&!reduce){
@@ -742,7 +746,7 @@ function countUp(el){
 
 /* ---------- ARCHIVE ---------- */
 const CAT={eco:['اقتصاد','#BFFB03'],sci:['علوم','#60E2FC'],sport:['رياضة','#FF6279'],lux:['فخامة','#FDFF04'],gulf:['خليجي','#60E2FC'],game:['ألعاب','#FDFF04']};
-const ARCHIVE_FALLBACK=[{"cat": "eco", "icon": "i-oil", "number": "31.2", "unit": "مليار دولار", "text": "صافي ربح أرامكو في ربع واحد", "image": "img/oil.webp"}, {"cat": "sport", "icon": "i-ball", "number": "936", "unit": "هدفًا", "text": "أهداف ميسي الرسمية في مسيرته", "image": "img/stadium.webp"}, {"cat": "sci", "icon": "i-sat", "number": "1", "unit": "يوم ضوئي", "text": "المسافة اللي قطعها المسبار فوييجر 1", "image": "img/galaxy.webp"}, {"cat": "game", "icon": "i-game", "number": "350", "unit": "مليون نسخة", "text": "مبيعات ماينكرافت، الأعلى في التاريخ", "image": "img/gaming.webp"}, {"cat": "gulf", "icon": "i-tower", "number": "828", "unit": "مترًا", "text": "ارتفاع برج خليفة", "image": "img/burj.webp"}, {"cat": "eco", "icon": "i-coin", "number": "21", "unit": "مليون", "text": "الحد الأقصى لعدد البيتكوين", "image": "img/bitcoin.webp"}, {"cat": "sci", "icon": "i-heart", "number": "100K", "unit": "نبضة", "text": "ينبضها قلبك كل يوم تقريبًا"}, {"cat": "lux", "icon": "i-car", "number": "23%", "unit": "من مبيعات بورشه", "text": "نصيب سيارة 911 وحدها", "image": "img/porsche.webp"}, {"cat": "gulf", "icon": "i-home", "number": "181,866", "unit": "صفقة", "text": "تداولات عقارات دبي في سنة", "image": "img/dubai.webp"}, {"cat": "game", "icon": "i-game", "number": "13", "unit": "سنة", "text": "الفجوة بين GTA V وGTA VI"}, {"cat": "sci", "icon": "i-meteor", "number": "71", "unit": "كم/ث", "text": "سرعة شهب الأسد", "image": "img/meteor.webp"}, {"cat": "gulf", "icon": "i-train", "number": "176", "unit": "كم", "text": "طول شبكة مترو الرياض", "image": "img/riyadh.webp"}];
+/*B:archive*/const ARCHIVE_FALLBACK=[{"cat": "eco", "icon": "i-oil", "number": "31.2", "unit": "مليار دولار", "text": "صافي ربح أرامكو في ربع واحد", "image": "img/oil.webp"}, {"cat": "sport", "icon": "i-ball", "number": "936", "unit": "هدفًا", "text": "أهداف ميسي الرسمية في مسيرته", "image": "img/stadium.webp"}, {"cat": "sci", "icon": "i-sat", "number": "1", "unit": "يوم ضوئي", "text": "المسافة اللي قطعها المسبار فوييجر 1", "image": "img/galaxy.webp"}, {"cat": "game", "icon": "i-game", "number": "350", "unit": "مليون نسخة", "text": "مبيعات ماينكرافت، الأعلى في التاريخ", "image": "img/gaming.webp"}, {"cat": "gulf", "icon": "i-tower", "number": "828", "unit": "مترًا", "text": "ارتفاع برج خليفة", "image": "img/burj.webp"}, {"cat": "eco", "icon": "i-coin", "number": "21", "unit": "مليون", "text": "الحد الأقصى لعدد البيتكوين", "image": "img/bitcoin.webp"}, {"cat": "sci", "icon": "i-heart", "number": "100K", "unit": "نبضة", "text": "ينبضها قلبك كل يوم تقريبًا"}, {"cat": "lux", "icon": "i-car", "number": "23%", "unit": "من مبيعات بورشه", "text": "نصيب سيارة 911 وحدها", "image": "img/porsche.webp"}, {"cat": "gulf", "icon": "i-home", "number": "181,866", "unit": "صفقة", "text": "تداولات عقارات دبي في سنة", "image": "img/dubai.webp"}, {"cat": "game", "icon": "i-game", "number": "13", "unit": "سنة", "text": "الفجوة بين GTA V وGTA VI"}, {"cat": "sci", "icon": "i-meteor", "number": "71", "unit": "كم/ث", "text": "سرعة شهب الأسد", "image": "img/meteor.webp"}, {"cat": "gulf", "icon": "i-train", "number": "176", "unit": "كم", "text": "طول شبكة مترو الرياض", "image": "img/riyadh.webp"}];/*/B:archive*/
 const grid=document.getElementById('grid');
 function renderArchive(list){
   grid.innerHTML=list.map(o=>{const cat=CAT[o.cat]||CAT.eco;
@@ -859,7 +863,7 @@ gsap.utils.toArray('.polaroid').forEach((p,i)=>gsap.fromTo(p,{y:40,rotate:i?14:-
 gsap.utils.toArray('.hash-deco').forEach((h,i)=>gsap.to(h,{rotate:i%2?-120:120,y:i%2?-80:80,ease:'none',scrollTrigger:{trigger:h.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
 ScrollTrigger.batch('.card',{start:'top 92%',once:true,onEnter:b=>gsap.fromTo(b,{y:40},{y:0,duration:.8,ease:'power3.out',stagger:.06,clearProps:'transform'})});
 document.querySelectorAll('.stat [data-count]').forEach(n=>ScrollTrigger.create({trigger:n,start:'top 90%',once:true,onEnter:()=>countUp(n)}));
-gsap.fromTo('#bars .fill',{scaleX:.05},{scaleX:1,duration:1.4,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#bars',start:'top 85%'}});
+ScrollTrigger.create({trigger:'#bars',start:'top 90%',once:true,onEnter:()=>gsap.fromTo('#bars .fill',{scaleX:.05},{scaleX:1,duration:1.4,ease:'expo.out',stagger:.12})});
 // footer logo: pieces fly in and lock into the approved logo
 gsap.from(fl.children,{y:()=>gsap.utils.random(-40,40),rotate:()=>gsap.utils.random(-25,25),transformOrigin:'center',duration:.9,ease:'back.out(1.8)',stagger:.04,scrollTrigger:{trigger:fl,start:'top 85%',once:true}});
 })();
