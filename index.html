@@ -213,6 +213,8 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.35}
 @media (max-width:520px){.ads-grid{grid-template-columns:1fr}.contact form{grid-template-columns:1fr}}
 
 .principles{margin-top:16px}
+/* قسم الإعلانات مخفي مؤقتاً: لإظهاره أزل خاصية hidden من #ads ومن رابط "أعلن معنا" في الفوتر */
+#ads[hidden],a[hidden]{display:none!important}
 .pr{border-top:4px solid var(--accent);padding:20px 4px 0}
 .pr b{display:block;font-family:var(--display);font-size:20px;font-weight:800;line-height:1.5}
 .pr span{color:var(--mute);font-size:15px}
@@ -582,7 +584,7 @@ button:disabled{opacity:.6;cursor:wait}
     </div>
   </div>
 </section>
-<section id="ads" class="on-color block" style="background:var(--coral)" aria-labelledby="adsTitle">
+<section id="ads" class="on-color block" style="background:var(--coral)" aria-labelledby="adsTitle" hidden>
   <svg class="hash-deco hd3" viewBox="0 0 40 40" aria-hidden="true"><use href="#hash"/></svg>
   <div class="wrap" style="padding-bottom:96px">
     <div class="eyebrow">للمعلنين والشراكات</div>
@@ -641,7 +643,7 @@ button:disabled{opacity:.6;cursor:wait}
   </div>
   <div class="foot-row">
     <span>رقم | حقائق وأرقام</span>
-    <a href="#ads">أعلن معنا</a>
+    <a href="#ads" hidden>أعلن معنا</a>
     <a href="https://www.instagram.com/raqam.ar/" class="num">@raqam.ar</a>
     <a href="privacy.html">سياسة الخصوصية</a>
     <span class="num">© 2026</span>
